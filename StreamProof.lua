@@ -1,3 +1,5 @@
+--[ Show big fat rectangle on kill text ]--
+
 lastdeads = {}
 function OnLoad()
 	print("loaded")
