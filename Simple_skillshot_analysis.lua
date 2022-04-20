@@ -15,25 +15,6 @@ if not blitz_in_game then
     return
 end
 
-do
-    local function AutoUpdate()
-        local Version = 1
-        local file_name = "BlitzHookTracker.lua"
-        local url = "https://raw.githubusercontent.com/stoneb2/Bruhwalker/main/BlitzHookTracker/BlitzHookTracker.lua"
-        local web_version = http:get("https://raw.githubusercontent.com/stoneb2/Bruhwalker/main/BlitzHookTracker/BlitzHookTracker.version.txt")
-        console:log("BlitzHookTracker Version: " .. Version)
-        console:log("BlitzHookTracker Web Version: " .. tonumber(web_version))
-        if tonumber(web_version) == Version then
-            console:log("BlitzHookTracker successfully loaded")
-        else
-            http:download_file(url, file_name)
-            console:log("New BlitzHookTracker Update Available")
-            console:log("Please Reload with F5")
-        end
-    end
-    AutoUpdate()
-end
-
 blitz = menu:add_category("Blitz Hook Tracker")
 enabled = menu:add_checkbox("Enabled", blitz, 1)
 print_options = menu:add_subcategory("Print Options", blitz)
