@@ -1,3 +1,4 @@
+-- Basically spam emotes + orbwalker at certain delays
 
 desync = menu:add_category("Desync exploit test")
 enable = menu:add_checkbox("Enable", desync, 0)
