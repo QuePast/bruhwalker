@@ -1,3 +1,3 @@
-League of Legends scripts for bruhwalker
+League of Legends scripts and exploits for bruhwalker internal platform
 
 Discord: Rajovan#2838
