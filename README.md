@@ -1,5 +1,3 @@
-Scripts for bruhwalker internal platform.
-
-I am really bad with github, expect about 2000 commits per month. I keep editing everything.
+League of Legends scripts for bruhwalker
 
 Discord: Rajovan#2838
