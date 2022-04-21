@@ -1,4 +1,4 @@
--- Basically spam emotes + orbwalker at certain delays
+-- Basically spam emotes + orbwalker at 40/40 click/tick delays 
 
 desync = menu:add_category("Desync exploit test")
 enable = menu:add_checkbox("Enable", desync, 0)
@@ -10,7 +10,7 @@ if menu:get_value(enable) == 1 and game:is_key_down(menu:get_value(hotkey)) then
 		game:send_emote(EMOTE_TAUNT)
 	else
 	if game.local_player.champ_name ~= "Yasuo" then
-		game:send_emote(EMOTE_DANCE)
+		game:send_emote(EMOTE_TAUNT)
 	end
 end
 
