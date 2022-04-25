@@ -1,5 +1,5 @@
 -- [ AutoUpdate ]
-do  
+--[[do  
     local function AutoUpdate()
 		local Version = 1
 		local file_name = "AimbotAIO.lua"
@@ -20,6 +20,7 @@ do
     AutoUpdate()
 
 end
+--]]
 
 Champs = {
 		["Aphelios"] = {
