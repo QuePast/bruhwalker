@@ -22,7 +22,8 @@
 end
 --]]
 
-Champs = {["Aphelios"] = {
+Champs = {
+	["Aphelios"] = {
 		{Slot = "Q", Qwindwall = true, Qcollision = true},
 		{Slot = "R", Rwindwall = false, Rcollision = true}
 	},
@@ -268,7 +269,7 @@ local keybindings = { ["Q"] = "81", ["W"] = "87", ["E"] = "69", ["R"] = "82" }
 config = menu:add_category("Aimbot by Radovan")
 spell_enable = menu:add_checkbox("Enable", config , 1)
 
-spellsa = menu:add_subcategory(game.local_player.champ_name .." settings", config)	
+spellsa = menu:add_subcategory(game.local_player.champ_name .." settings", config)
 
 if Champs[game.local_player.champ_name] then
 	console:log( game.local_player.champ_name .. " is supported") else
@@ -278,14 +279,14 @@ end
 
 if not Champs[game.local_player.champ_name] then return end
 
- if Champs[game.local_player.champ_name] then
+if Champs[game.local_player.champ_name] then
 	for i, spells in pairs(Champs[game.local_player.champ_name]) do
 		if spells.Slot == "Q" then 
 			spellmenuq = menu:add_keybinder("Q Key", spellsa, 81)
 			spellmenu_enableq = menu:add_checkbox("Q Enabled", spellsa, 1)
 			qrange = spellbook:get_spell_slot(SLOT_Q).spell_data.cast_range
 			qspeed = spellbook:get_spell_slot(SLOT_Q).spell_data.missile_speed
-			qwidth = spellbook:get_spell_slot(SLOT_Q).spell_data.width	
+			qwidth = spellbook:get_spell_slot(SLOT_Q).spell_data.width
 		elseif spells.Slot == "W" then 
 			spellmenuw = menu:add_keybinder("W Key", spellsa, 87)
 			spellmenu_enablew = menu:add_checkbox("W Enabled", spellsa, 1)
@@ -305,72 +306,68 @@ if not Champs[game.local_player.champ_name] then return end
 			rspeed = spellbook:get_spell_slot(SLOT_R).spell_data.missile_speed
 			rwidth = spellbook:get_spell_slot(SLOT_R).spell_data.width
 		end
-
 	end
 end 
 
 local function Ready(spells)
-    return spellbook:can_cast(spells) 
+    return spellbook:can_cast(spells)
 end
 
 local function CastQ(unit)
 	pred_output = pred:predict(qspeed, 0, qrange, qwidth, unit, Qcollision, Qwindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
-		spellbook:cast_spell(SLOT_Q, 0, castPos.x, castPos.y, castPos.z) 			
-	end	
-end	
+		spellbook:cast_spell(SLOT_Q, 0, castPos.x, castPos.y, castPos.z)
+	end
+end
 
 local function CastW(unit)
 	pred_output = pred:predict(wspeed, 0, wrange, wwidth, unit, Wcollision, Wwindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
-		spellbook:cast_spell(SLOT_W, 0, castPos.x, castPos.y, castPos.z) 			
-	end	
-end	
+		spellbook:cast_spell(SLOT_W, 0, castPos.x, castPos.y, castPos.z)
+	end
+end
 
 local function CastE(unit)
 	pred_output = pred:predict(espeed, 0, erange, ewidth, unit, Ecollision, Ewindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
-		spellbook:cast_spell(SLOT_E, 0, castPos.x, castPos.y, castPos.z) 			
-	end	
-end	
+		spellbook:cast_spell(SLOT_E, 0, castPos.x, castPos.y, castPos.z)
+	end
+end
 
 local function CastR(unit)
 	pred_output = pred:predict(rspeed, 0, rrange, rwidth, unit, Rcollision, Rcollision)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
-		spellbook:cast_spell(SLOT_R, 0, castPos.x, castPos.y, castPos.z) 			
-	end	
-end	
+		spellbook:cast_spell(SLOT_R, 0, castPos.x, castPos.y, castPos.z)
+	end
+end
 
 local function Castspell_Q()
-	target = selector:find_target(qrange, cursor)   
+	target = selector:find_target(qrange, cursor)
 	if target.object_id ~= 0 and Ready(SLOT_Q) then
 		if myHero:distance_to(target.origin) <= qrange  then
-			CastQ(target)		
-
-		end           
-	end	 
+			CastQ(target)
+		end
+	end
 end
 
 local function Castspell_W()
-	target = selector:find_target(wrange, cursor)   
+	target = selector:find_target(wrange, cursor)
 	if target.object_id ~= 0 and Ready(SLOT_W) then
 		if myHero:distance_to(target.origin) <= wrange  then
-			CastW(target)		
-
-		end           
-	end	 
+			CastW(target)
+		end
+	end
 end
 
 local function Castspell_E()
-	target = selector:find_target(erange, cursor)   
+	target = selector:find_target(erange, cursor)
 	if target.object_id ~= 0 and Ready(SLOT_E) then
 		if myHero:distance_to(target.origin) <= erange  then
-			CastE(target)		
-
+			CastE(target)
 		end           
 	end	 
 end
@@ -379,27 +376,26 @@ local function Castspell_R()
 	target = selector:find_target(rrange, cursor)   
 	if target.object_id ~= 0 and Ready(SLOT_R) then
 		if myHero:distance_to(target.origin) <= rrange  then
-			CastR(target)		
-
-		end           
-	end	 
+			CastR(target)
+		end
+	end
 end
 
 function on_tick()
 	for i, spells in pairs(Champs[game.local_player.champ_name]) do
-		if spells.Slot == "Q" then 
+		if spells.Slot == "Q" then
 			if game:is_key_down(menu:get_value(spellmenuq)) and menu:get_value(spellmenu_enableq) == 1 then
 				Castspell_Q()
 			end
-		elseif spells.Slot == "W" then 
+		elseif spells.Slot == "W" then
 			if game:is_key_down(menu:get_value(spellmenuw)) and menu:get_value(spellmenu_enablew) == 1 then
 				Castspell_W()
 			end
-		elseif spells.Slot == "E" then 
+		elseif spells.Slot == "E" then
 			if game:is_key_down(menu:get_value(spellmenue)) and menu:get_value(spellmenu_enablee) == 1 then
 				Castspell_E()
 			end
-		elseif spells.Slot == "R" then 
+		elseif spells.Slot == "R" then
 			if game:is_key_down(menu:get_value(spellmenur)) and menu:get_value(spellmenu_enabler) == 1 then
 				Castspell_R()
 			end
