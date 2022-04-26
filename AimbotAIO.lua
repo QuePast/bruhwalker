@@ -410,3 +410,125 @@ function on_tick()
 end
 
 client:set_event_callback("on_tick", on_tick)
+
+--[[ MISSCLICK PLUGIN CODE 10%
+-- 1. ENEMY PLAYERS ( NOT LUX W )
+players = game.players
+
+for _, v in ipairs(players) do
+	champ_name = v.champ_name
+	
+	console:log(champ_name)
+end
+
+-- 2. ENEMY MINIONS (??ALL collision spells??)
+minions = game.minions
+
+for _, v in ipairs(minions) do
+end
+
+-- 3. ENEMY PETS (??ALL collision spells??)
+pets= game.pets
+
+for _, v in ipairs(pets) do
+end
+
+-- 4. JUNGLE PLANTS (??ALL collision spells??)
+jungle_minions= game.jungle_minions
+
+for _, v in ipairs(jungle_minions) do
+end
+
+-- 5. ENEMY TURRETS (Ezreal W)
+turrets= game.turrets
+
+for _, v in ipairs(turrets) do
+end
+
+-- 6. ENEMY INHIBS (Ezreal W)
+inhibs = game.inhibs
+
+for _, v in ipairs(inhibs) do
+end
+
+-- 7. ALLY PLAYERS ( LUX W )
+players = game.players
+
+for _, v in ipairs(players) do
+	champ_name = v.champ_name
+	
+	console:log(champ_name)
+end
+
+ARK COPYPASTA
+--------------------------
+-- Object Manager class --
+
+local ObjectManager = Class()
+
+function ObjectManager:__init() end
+
+function ObjectManager:GetAllyHeroes(range)
+    local pos = myHero.path.server_pos
+    return Linq(game.players):Where(function(u)
+        return Data:IsValid(u) and not u.is_enemy and
+            u.object_id ~= myHero.object_id and range >=
+            Geometry:Distance(pos, u.path.server_pos)
+    end)
+end
+
+function ObjectManager:GetAllyMinions(range)
+    local pos = myHero.path.server_pos
+    return Linq(game.minions):Where(function(u)
+        return Data:IsValid(u) and not u.is_enemy and
+            Geometry:Distance(pos, u.origin) <= range
+    end)
+end
+
+function ObjectManager:GetEnemyHeroes(range)
+    local pos = myHero.path.server_pos
+    return Linq(game.players):Where(function(u)
+        return Data:IsValid(u) and u.is_enemy
+            and (range and Geometry:Distance(
+            pos, u.path.server_pos) <= range
+            or Geometry:IsInAutoAttackRange(u))
+    end)
+end
+
+function ObjectManager:GetEnemyMinions()
+    return Linq(game.minions):Where(function(u)
+        return Data:IsValid(u) and u.is_enemy
+            and Geometry:IsInAutoAttackRange(u)
+    end)
+end
+
+function ObjectManager:GetEnemyMonsters()
+    return Linq(game.jungle_minions):Where(function(u)
+        return Data:IsValid(u) and u.is_enemy
+            and Geometry:IsInAutoAttackRange(u)
+    end)
+end
+
+function ObjectManager:GetEnemyPets()
+    return Linq(game.pets):Where(function(u)
+        return Data:IsValid(u) and u.is_enemy
+            and Geometry:IsInAutoAttackRange(u)
+    end)
+end
+
+function ObjectManager:GetEnemyStructure()
+    return Linq(game.nexus):Concat(
+        game.inhibs):First(function(t)
+        return Data:IsValid(t) and t.is_enemy
+            and Geometry:IsInAutoAttackRange(t)
+    end)
+end
+
+function ObjectManager:GetEnemyTurret()
+    return Linq(game.turrets):First(function(t)
+        return Data:IsValid(t) and t.is_enemy
+            and Geometry:IsInAutoAttackRange(t)
+    end)
+end
+
+--]]
