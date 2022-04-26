@@ -58,7 +58,7 @@ Champs = {
 	["Brand"] = {
 		{Slot = "Q", Qwindwall = true, Qcollision = true},
 		{Slot = "W", Wwindwall = true, Wcollision = false}
-	
+	},
 	["Caitlyn"] = {
 		{Slot = "Q", Qwindwall = true, Qcollision = false},
 		{Slot = "E", Ewindwall = true, Ecollision = true}
@@ -71,7 +71,7 @@ Champs = {
 	["Chogath"] = {
 		{Slot = "Q", Qwindwall = true, Qcollision = false},
 		{Slot = "W", Wwindwall = true, Wcollision = false}
-	
+	},
 	["Corki"] = {
 		{Slot = "Q", Qwindwall = true, Qcollision = false},
 		{Slot = "R", Rwindwall = true, Rcollision = true}
@@ -262,7 +262,6 @@ Champs = {
 
 pred:use_prediction()
 
-local myHero = game.local_player
 local blah = { ["Q"] = "Q", ["W"] = "W", ["E"] = "E", ["R"] = "R" }
 local keybindings = { ["Q"] = "81", ["W"] = "87", ["E"] = "69", ["R"] = "82" }
 
@@ -403,6 +402,7 @@ function on_tick()
 	end
 end
 
+client:set_event_callback("on_draw", on_draw)
 client:set_event_callback("on_tick", on_tick)
 
 --[[ MISSCLICK PLUGIN CODE 10%
@@ -419,6 +419,7 @@ end
 minions = game.minions
 
 for _, v in ipairs(minions) do
+renderer:draw_circle(minions.x, minions.y, minions.z, 50, 100, 100, 100, 100)
 end
 
 -- 3. ENEMY PETS (??ALL collision spells??)
@@ -452,77 +453,6 @@ for _, v in ipairs(players) do
 	champ_name = v.champ_name
 	
 	console:log(champ_name)
-end
-
-ARK COPYPASTA
---------------------------
--- Object Manager class --
-
-local ObjectManager = Class()
-
-function ObjectManager:__init() end
-
-function ObjectManager:GetAllyHeroes(range)
-    local pos = myHero.path.server_pos
-    return Linq(game.players):Where(function(u)
-        return Data:IsValid(u) and not u.is_enemy and
-            u.object_id ~= myHero.object_id and range >=
-            Geometry:Distance(pos, u.path.server_pos)
-    end)
-end
-
-function ObjectManager:GetAllyMinions(range)
-    local pos = myHero.path.server_pos
-    return Linq(game.minions):Where(function(u)
-        return Data:IsValid(u) and not u.is_enemy and
-            Geometry:Distance(pos, u.origin) <= range
-    end)
-end
-
-function ObjectManager:GetEnemyHeroes(range)
-    local pos = myHero.path.server_pos
-    return Linq(game.players):Where(function(u)
-        return Data:IsValid(u) and u.is_enemy
-            and (range and Geometry:Distance(
-            pos, u.path.server_pos) <= range
-            or Geometry:IsInAutoAttackRange(u))
-    end)
-end
-
-function ObjectManager:GetEnemyMinions()
-    return Linq(game.minions):Where(function(u)
-        return Data:IsValid(u) and u.is_enemy
-            and Geometry:IsInAutoAttackRange(u)
-    end)
-end
-
-function ObjectManager:GetEnemyMonsters()
-    return Linq(game.jungle_minions):Where(function(u)
-        return Data:IsValid(u) and u.is_enemy
-            and Geometry:IsInAutoAttackRange(u)
-    end)
-end
-
-function ObjectManager:GetEnemyPets()
-    return Linq(game.pets):Where(function(u)
-        return Data:IsValid(u) and u.is_enemy
-            and Geometry:IsInAutoAttackRange(u)
-    end)
-end
-
-function ObjectManager:GetEnemyStructure()
-    return Linq(game.nexus):Concat(
-        game.inhibs):First(function(t)
-        return Data:IsValid(t) and t.is_enemy
-            and Geometry:IsInAutoAttackRange(t)
-    end)
-end
-
-function ObjectManager:GetEnemyTurret()
-    return Linq(game.turrets):First(function(t)
-        return Data:IsValid(t) and t.is_enemy
-            and Geometry:IsInAutoAttackRange(t)
-    end)
 end
 
 --]]
