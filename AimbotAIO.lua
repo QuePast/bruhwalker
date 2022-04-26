@@ -22,8 +22,7 @@
 end
 --]]
 
-Champs = {
-	["Aphelios"] = {
+Champs = {["Aphelios"] = {
 		{Slot = "Q", Qwindwall = true, Qcollision = true},
 		{Slot = "R", Rwindwall = false, Rcollision = true}
 	},
