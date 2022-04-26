@@ -23,242 +23,241 @@ end
 --]]
 
 Champs = {
-		["Aphelios"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-			{Slot = "R", Rwindwall = false, Rcollision = true}
+	["Aphelios"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true},
+		{Slot = "R", Rwindwall = false, Rcollision = true}
 	},
-		["Senna"] = {
-			{Slot = "W", Qwindwall = true, Wcollision = false},
+	["Senna"] = {
+		{Slot = "W", Qwindwall = true, Wcollision = false}
 	},
-		["Aatrox"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-			{Slot = "E", Ewindwall = true, Ecollision = true}
-    },
-		["Ahri"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-			{Slot = "E", Ewindwall = true, Ecollision = true}
-    },
-		["Amumu"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },                   
-		["Anivia"] = {   
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-        ["Annie"] = {
-			{Slot = "W", Wwindwall = true, Wcollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Ashe"] = {
-			{Slot = "W", Wwindwall = true, Wcollision = true},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Blitzcrank"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Brand"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-			{Slot = "W", Wwindwall = true, Wcollision = false},
+	["Aatrox"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true},
+		{Slot = "E", Ewindwall = true, Ecollision = true}
 	},
-		["Caitlyn"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-			{Slot = "E", Ewindwall = true, Ecollision = true},
-    },
-		["Cassiopeia"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-			{Slot = "W", Wwindwall = true, Wcollision = true},
-			{Slot = "R", Rwindwall = true, Rcollision = true}
-    },
-		["Chogath"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-			{Slot = "W", Wwindwall = true, Wcollision = false}
+	["Ahri"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true},
+		{Slot = "E", Ewindwall = true, Ecollision = true}
 	},
-		["Corki"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = true}
-    },
-		["Darius"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = false}
-    },
-		["Diana"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["DrMundo"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Draven"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Elise"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = true}
-    },
-		["Ezreal"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-			{Slot = "W", Wwindwall = true, Wcollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = true}
-    },
-        ["Fizz"] = {
-			{Slot = "R", Rwindwall = true, Rcollision = false}
+	["Amumu"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},           
+	["Anivia"] = {   
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
 	},
-		["Galio"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-			--{Slot = "E", Ewindwall = true, Ecollision = false}
-    },
-		["Gragas"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["Graves"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-			{Slot = "W", Wwindwall = true, Wcollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = true}
-    },
-		["Heimerdinger"] = {
-			{Slot = "W", Wwindwall = true, Wcollision = true},
-			{Slot = "E", Ewindwall = true, Ecollision = false}
-        },
-        ["Irelia"] = {
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-        ["JarvanIV"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-			{Slot = "E", Ewindwall = true, Ecollision = false}
+	["Annie"] = {
+		{Slot = "W", Wwindwall = true, Wcollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
 	},
-		["Jinx"] = {
-			{Slot = "W", Wwindwall = true, Wcollision = true},
-			{Slot = "E", Ewindwall = true, Ecollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
+	["Ashe"] = {
+		{Slot = "W", Wwindwall = true, Wcollision = true},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
 	},
-		["Karma"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Karthus"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-    },
-		["Kennen"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },                   
-		["Khazix"] = {   
-			{Slot = "W", Wwindwall = true, Wcollision = true}
-    },                   
-		["KogMaw"] = {   
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Leblanc"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["LeeSin"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Leona"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Lucian"] = {
-			{Slot = "W", Wwindwall = true, Wcollision = true}
-    },
-		["Lulu"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Lux"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-			{Slot = "E", Ewindwall = true, Ecollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Malzahar"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
+	["Blitzcrank"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Brand"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true},
+		{Slot = "W", Wwindwall = true, Wcollision = false}
+	
+	["Caitlyn"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false},
+		{Slot = "E", Ewindwall = true, Ecollision = true}
+	},
+	["Cassiopeia"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false},
+		{Slot = "W", Wwindwall = true, Wcollision = true},
+		{Slot = "R", Rwindwall = true, Rcollision = true}
+	},
+	["Chogath"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false},
+		{Slot = "W", Wwindwall = true, Wcollision = false}
+	
+	["Corki"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = true}
+	},
+	["Darius"] = {
+		{Slot = "E", Ewindwall = true, Ecollision = false}
+	},
+	["Diana"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["DrMundo"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Draven"] = {
+		{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Elise"] = {
+		{Slot = "E", Ewindwall = true, Ecollision = true}
+	},
+	["Ezreal"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true},
+		{Slot = "W", Wwindwall = true, Wcollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = true}
+	},
+	["Fizz"] = {
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Galio"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Gragas"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Graves"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true},
+		{Slot = "W", Wwindwall = true, Wcollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = true}
+	},
+	["Heimerdinger"] = {
+		{Slot = "W", Wwindwall = true, Wcollision = true},
+		{Slot = "E", Ewindwall = true, Ecollision = false}
+	},
+	["Irelia"] = {
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["JarvanIV"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false},
+		{Slot = "E", Ewindwall = true, Ecollision = false}
+	},
+	["Jinx"] = {
+		{Slot = "W", Wwindwall = true, Wcollision = true},
+		{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Karma"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Karthus"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Kennen"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},                   
+	["Khazix"] = {   
+		{Slot = "W", Wwindwall = true, Wcollision = true}
+	},                   
+	["KogMaw"] = {   
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Leblanc"] = {
+		{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["LeeSin"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Leona"] = {
+		{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Lucian"] = {
+		{Slot = "W", Wwindwall = true, Wcollision = true}
+	},
+	["Lulu"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Lux"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true},
+		{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Malzahar"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
         ["Mordekaiser"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "E", Ewindwall = true, Ecollision = false}
 	},
-		["Morgana"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Nami"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["Nautilus"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Nidalee"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-    },
-		["Nocturne"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["Olaf"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["Quinn"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Rakan"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
+	["Morgana"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
 	},
-		["Rumble"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = true}
-    },
-		["Sejuani"] = {
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Sivir"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["Skarner"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = false}
-    },
-		["Swain"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["Syndra"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["Thresh"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true}
-    },
-		["Twitch"] = {
-			{Slot = "W", Wwindwall = true, Wcollision = false}
-    },
-		["TwistedFate"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false}
-    },
-		["Urgot"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true },
-			{Slot = "E", Ewindwall = true, Ecollision = false}
-    },
-		["Varus"] = {
-			{Slot = "E", Ewindwall = true, Ecollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Veigar"] = {
-			{Slot = "W", Wwindwall = true, Wcollision = false}
-    },
-		["Viktor"] = {
-			{Slot = "W", Wwindwall = true, Wcollision = false},
-			{Slot = "E", Ewindwall = true, Ecollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Velkoz"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = true},
-			{Slot = "W", Wwindwall = true, Wcollision = false},
-			{Slot = "E", Ewindwall = true, Ecollision = false}
-    },    
-        ["Xerath"] = {
-			{Slot = "R", Rwindwall = true, Rcollision = false},
-    },
-		["Zed"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-    },
-        ["Ziggs"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-			{Slot = "W", Wwindwall = true, Wcollision = false},
-			{Slot = "E", Ewindwall = true, Ecollision = false},
-			{Slot = "R", Rwindwall = true, Rcollision = false}
-    },
-		["Zyra"] = {
-			{Slot = "Q", Qwindwall = true, Qcollision = false},
-			{Slot = "E", Ewindwall = true, Ecollision = false}
-    }
+	["Nami"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Nautilus"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Nidalee"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Nocturne"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Olaf"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Quinn"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Rakan"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Rumble"] = {
+		{Slot = "E", Ewindwall = true, Ecollision = true}
+	},
+	["Sejuani"] = {
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Sivir"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Skarner"] = {
+		{Slot = "E", Ewindwall = true, Ecollision = false}
+	},
+	["Swain"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Syndra"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Thresh"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true}
+	},
+	["Twitch"] = {
+		{Slot = "W", Wwindwall = true, Wcollision = false}
+	},
+	["TwistedFate"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Urgot"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true },
+		{Slot = "E", Ewindwall = true, Ecollision = false}
+	},
+	["Varus"] = {
+		{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Veigar"] = {
+		{Slot = "W", Wwindwall = true, Wcollision = false}
+	},
+	["Viktor"] = {
+		{Slot = "W", Wwindwall = true, Wcollision = false},
+		{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Velkoz"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = true},
+		{Slot = "W", Wwindwall = true, Wcollision = false},
+		{Slot = "E", Ewindwall = true, Ecollision = false}
+	},    
+	["Xerath"] = {
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Zed"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false}
+	},
+	["Ziggs"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false},
+		{Slot = "W", Wwindwall = true, Wcollision = false},
+		{Slot = "E", Ewindwall = true, Ecollision = false},
+		{Slot = "R", Rwindwall = true, Rcollision = false}
+	},
+	["Zyra"] = {
+		{Slot = "Q", Qwindwall = true, Qcollision = false},
+		{Slot = "E", Ewindwall = true, Ecollision = false}
+	}
 }
 
 pred:use_prediction()
