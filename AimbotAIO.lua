@@ -409,50 +409,99 @@ client:set_event_callback("on_tick", on_tick)
 -- 1. ENEMY PLAYERS ( NOT LUX W )
 players = game.players
 
-for _, v in ipairs(players) do
-	champ_name = v.champ_name
-	
-	console:log(champ_name)
+for _, hero in ipairs(players) do
+    dist = hero:distance_to(player.origin)
+
+    if dist < player.attack_range and hero.object_id ~= player.object_id then
+        console:log(hero.object_name)
+        console:log(tostring(hero.health))
+        console:log(tostring(hero.is_targetable))
+    end
 end
 
 -- 2. ENEMY MINIONS (??ALL collision spells??)
 minions = game.minions
 
-for _, v in ipairs(minions) do
-renderer:draw_circle(minions.x, minions.y, minions.z, 50, 100, 100, 100, 100)
+for _, minion in ipairs(minions) do
+    dist = minion:distance_to(player.origin)
+
+    if dist < player.attack_range then
+        console:log(minion.object_name)
+        console:log(tostring(minion.health))
+        console:log(tostring(minion.is_targetable))
+        if minion.is_targetable then
+            --renderer
+        end
+    end
 end
 
 -- 3. ENEMY PETS (??ALL collision spells??)
-pets= game.pets
+pets = game.pets
 
-for _, v in ipairs(pets) do
+for _, minion in ipairs(pets) do
+    dist = minion:distance_to(player.origin)
+
+    if dist < player.attack_range then
+        console:log(minion.object_name)
+        console:log(tostring(minion.health))
+        console:log(tostring(minion.is_targetable))
+        if minion.is_targetable then
+            --renderer
+        end
+    end
 end
 
 -- 4. JUNGLE PLANTS (??ALL collision spells??)
-jungle_minions= game.jungle_minions
+jungle_plants = game.jungle_plants
 
-for _, v in ipairs(jungle_minions) do
+for _, minion in ipairs(jungle_plants) do
+    dist = minion:distance_to(player.origin)
+
+    if dist < player.attack_range then
+        console:log(minion.object_name)
+        console:log(tostring(minion.health))
+        console:log(tostring(minion.is_targetable))
+    end
 end
 
 -- 5. ENEMY TURRETS (Ezreal W)
 turrets= game.turrets
 
-for _, v in ipairs(turrets) do
+for _, minion in ipairs(turrets) do
+    dist = minion:distance_to(player.origin)
+
+    if dist < player.attack_range then
+        console:log(minion.object_name)
+        console:log(tostring(minion.health))
+        console:log(tostring(minion.is_targetable))
+    end
 end
 
 -- 6. ENEMY INHIBS (Ezreal W)
 inhibs = game.inhibs
 
-for _, v in ipairs(inhibs) do
+for _, minion in ipairs(inhibs) do
+    dist = minion:distance_to(player.origin)
+
+    if dist < player.attack_range then
+        console:log(minion.object_name)
+        console:log(tostring(minion.health))
+        console:log(tostring(minion.is_targetable))
+    end
 end
 
--- 7. ALLY PLAYERS ( LUX W )
-players = game.players
 
-for _, v in ipairs(players) do
-	champ_name = v.champ_name
-	
-	console:log(champ_name)
+-- 7. ALLY PLAYERS ( LUX W )
+allies = game.players
+
+for _, minion in ipairs(allies) do
+    dist = minion:distance_to(player.origin)
+
+    if dist < player.attack_range then
+        console:log(minion.object_name)
+        console:log(tostring(minion.health))
+        console:log(tostring(minion.is_targetable))
+    end
 end
 
 --]]
