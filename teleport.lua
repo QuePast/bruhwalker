@@ -14,7 +14,6 @@ console:log(tostring(spellbook:get_spell_slot(2)))
 console:log(tostring(spellbook:get_spell_slot(3)))
 console:log(tostring(spellbook:get_spell_slot(4)))
 console:log(tostring(spellbook:get_spell_slot(5)))
-console:log(tostring(spellbook:get_spell_slot(6)))
 
 local function on_tick()
 	if menu:get_value(enable) == 1 and game:is_key_down(menu:get_value(hotkey)) then
@@ -30,8 +29,8 @@ local function on_tick()
 		if menu:get_value(emote4) == 1 then
 			game:send_emote(EMOTE_LAUGH)
 		end
---		if menu:get_value(recall) == 1
---			spellbook:start_charged_spell(recall)
+--		if menu:get_value(recall) == 1 then
+--			spellbook:start_charged_spell(RECALL)
 --		end
 	end
 end
