@@ -8,8 +8,7 @@ local function on_tick()
 if menu:get_value(enable) == 1 and game:is_key_down(menu:get_value(hotkey)) then
 	if game.local_player.champ_name ~= "Velkoz" then
 		game:send_emote(EMOTE_TAUNT)
-	else
-	if game.local_player.champ_name ~= "Yasuo" then
+	elseif game.local_player.champ_name ~= "Yasuo" then
 		game:send_emote(EMOTE_TAUNT)
 	end
 end
