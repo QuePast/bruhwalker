@@ -18,22 +18,21 @@ console:log(tostring(spellbook:get_spell_slot(6)))
 
 local function on_tick()
 	if menu:get_value(enable) == 1 and game:is_key_down(menu:get_value(hotkey)) then
-		if menu:get_value(emote1) == 1
+		if menu:get_value(emote1) == 1 then
 			game:send_emote(EMOTE_JOKE)
 		end
-		if menu:get_value(emote2) == 1
+		if menu:get_value(emote2) == 1 then
 			game:send_emote(EMOTE_TAUNT)
 		end
-		if menu:get_value(emote3) == 1
+		if menu:get_value(emote3) == 1 then
 			game:send_emote(EMOTE_DANCE)
 		end
-		if menu:get_value(emote4) == 1
+		if menu:get_value(emote4) == 1 then
 			game:send_emote(EMOTE_LAUGH)
 		end
 --		if menu:get_value(recall) == 1
 --			spellbook:start_charged_spell(recall)
 --		end
-		end
 	end
 end
 
