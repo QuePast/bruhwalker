@@ -1,13 +1,16 @@
+-- Testing script for Desync exploit
 -- Basically spam emotes + orbwalker at 40/40 click/tick delays 
 
 desync = menu:add_category("Desync exploit test")
-enable = menu:add_checkbox("Enable", desync, 0)
+enable = menu:add_checkbox("Enable", desync, 1)
 hotkey = menu:add_keybinder("Hotkey", desync, 0x20)
 emote1 = menu:add_checkbox("EMOTE_JOKE", desync, 0)
 emote2 = menu:add_checkbox("EMOTE_TAUNT", desync, 0)
 emote3 = menu:add_checkbox("EMOTE_DANCE", desync, 0)
 emote4 = menu:add_checkbox("EMOTE_LAUGH", desync, 0)
 recall = menu:add_checkbox("RECALL", desync, 0)
+custommenu = menu:add_checkbox("Enable custom value", desync, 0)
+customspell = menu:add_slider("Value 0-63", desync, 0, 63, 0)
 
 console:log(tostring("0 " .. spellbook:get_spell_slot(0).spell_data.spell_name))
 console:log(tostring("1 " .. spellbook:get_spell_slot(1).spell_data.spell_name))
@@ -91,6 +94,9 @@ local function on_tick()
 		if menu:get_value(recall) == 1 then
 			spellbook:key_down_int(0x42)
 			spellbook:key_up_int(0x42)
+		end
+		if menu:get_value(custommenu) == 1  then
+			spellbook:start_charged_spell(menu:get_value(customspell))
 		end
 	end
 end
