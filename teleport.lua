@@ -9,11 +9,12 @@ emote3 = menu:add_checkbox("EMOTE_DANCE", desync, 0)
 emote4 = menu:add_checkbox("EMOTE_LAUGH", desync, 0)
 recall = menu:add_checkbox("RECALL", desync, 0)
 
+console:log(tostring(spellbook:get_spell_slot(1).spell_data.spell_name)
+console:log(tostring(spellbook:get_spell_slot(2).spell_data.spell_name)
+console:log(tostring(spellbook:get_spell_slot(3).spell_data.spell_name)
 console:log(tostring(spellbook:get_spell_slot(1)))
 console:log(tostring(spellbook:get_spell_slot(2)))
 console:log(tostring(spellbook:get_spell_slot(3)))
-console:log(tostring(spellbook:get_spell_slot(4)))
-console:log(tostring(spellbook:get_spell_slot(5)))
 
 local function on_tick()
 	if menu:get_value(enable) == 1 and game:is_key_down(menu:get_value(hotkey)) then
