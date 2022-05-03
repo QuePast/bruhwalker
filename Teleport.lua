@@ -96,7 +96,7 @@ local function on_tick()
 			spellbook:key_up_int(0x42)
 		end
 		if menu:get_value(custommenu) == 1  then
-			spellbook:start_charged_spell(menu:get_value(customspell))
+			spellbook:cast_spell_minimap(menu:get_value(customspell), 0.25, 100,100,100)
 		end
 	end
 end
