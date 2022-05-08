@@ -381,6 +381,7 @@ local function Castspell_R()
 end
 
 function on_tick()
+	GetEnemyHeroes()
 	for i, spells in pairs(Champs[game.local_player.champ_name]) do
 		if spells.Slot == "Q" then
 			if game:is_key_down(menu:get_value(spellmenuq)) and menu:get_value(spellmenu_enableq) == 1 then
@@ -402,21 +403,36 @@ function on_tick()
 	end
 end
 
+-- 1. ENEMY PLAYERS ( NOT LUX W )
+local function GetEnemyHeroes()
+	players = game.players
+	
+	for _, hero in ipairs(players) do
+	    dist = myHero:distance_to(player.origin)
+	
+	    if dist < myHero.attack_range and myHero.object_id ~= player.object_id then
+	        console:log(myHero.object_name)
+	        console:log(tostring(myHero.health))
+	        console:log(tostring(myHero.is_targetable))
+	    end
+	end
+end
+
 client:set_event_callback("on_draw", on_draw)
 client:set_event_callback("on_tick", on_tick)
 
---[[ MISSCLICK PLUGIN CODE 10%
 -- 1. ENEMY PLAYERS ( NOT LUX W )
-players = game.players
-
-for _, hero in ipairs(players) do
-    dist = hero:distance_to(player.origin)
-
-    if dist < player.attack_range and hero.object_id ~= player.object_id then
-        console:log(hero.object_name)
-        console:log(tostring(hero.health))
-        console:log(tostring(hero.is_targetable))
-    end
+end
+--[[ MISSCLICK PLUGIN CODE 10%
+local function GetEnemyHeroes()
+	local _EnemyHeroes = {}
+	players = game.players	
+	for i, unit in ipairs(players) do
+		if unit and unit.is_enemy then
+			table.insert(_EnemyHeroes, unit)
+		end
+	end	
+	return _EnemyHeroes
 end
 
 -- 2. ENEMY MINIONS (??ALL collision spells??)
