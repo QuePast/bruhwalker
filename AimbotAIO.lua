@@ -21,7 +21,7 @@
 
 end
 --]]
-
+-- Q, spell type(circular, line, charged), windwall, collision
 Champs = {
 	["Aphelios"] = {
 		{Slot = "Q", Qwindwall = true, Qcollision = true},
@@ -313,34 +313,34 @@ local function Ready(spells)
 end
 
 local function CastQ(unit)
-	pred_output = pred:predict(qspeed, 0, qrange, qwidth, unit, Qcollision, Qwindwall)
+	pred_output = pred:predict(qspeed, 0.2, qrange, qwidth, unit, Qcollision, Qwindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
-		spellbook:cast_spell(SLOT_Q, 0, castPos.x, castPos.y, castPos.z)
+		spellbook:cast_spell(SLOT_Q, 0.3, castPos.x, castPos.y, castPos.z)
 	end
 end
 
 local function CastW(unit)
-	pred_output = pred:predict(wspeed, 0, wrange, wwidth, unit, Wcollision, Wwindwall)
+	pred_output = pred:predict(wspeed, 0.2, wrange, wwidth, unit, Wcollision, Wwindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
-		spellbook:cast_spell(SLOT_W, 0, castPos.x, castPos.y, castPos.z)
+		spellbook:cast_spell(SLOT_W, 0.3, castPos.x, castPos.y, castPos.z)
 	end
 end
 
 local function CastE(unit)
-	pred_output = pred:predict(espeed, 0, erange, ewidth, unit, Ecollision, Ewindwall)
+	pred_output = pred:predict(espeed, 0.2, erange, ewidth, unit, Ecollision, Ewindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
-		spellbook:cast_spell(SLOT_E, 0, castPos.x, castPos.y, castPos.z)
+		spellbook:cast_spell(SLOT_E, 0.3, castPos.x, castPos.y, castPos.z)
 	end
 end
 
 local function CastR(unit)
-	pred_output = pred:predict(rspeed, 0, rrange, rwidth, unit, Rcollision, Rcollision)
+	pred_output = pred:predict(rspeed, 0.2, rrange, rwidth, unit, Rcollision, Rcollision)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
-		spellbook:cast_spell(SLOT_R, 0, castPos.x, castPos.y, castPos.z)
+		spellbook:cast_spell(SLOT_R, 0.3, castPos.x, castPos.y, castPos.z)
 	end
 end
 
