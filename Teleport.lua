@@ -12,7 +12,14 @@ recall = menu:add_checkbox("RECALL", desync, 0)
 custommenu = menu:add_checkbox("Enable custom value", desync, 0)
 customspell = menu:add_slider("Value 0-63", desync, 0, 63, 0)
 
---xd
+-- test
+--for a=0,100 do
+--	if spellbook:get_spell_slot(a).spell_data.spell_name ~= 0 then
+--  		console:log(tostring("a " .. spellbook:get_spell_slot(a).spell_data.spell_name))
+--	end
+--end
+
+--SLAVE WAY
 console:log(tostring("0 " .. spellbook:get_spell_slot(0).spell_data.spell_name))
 console:log(tostring("1 " .. spellbook:get_spell_slot(1).spell_data.spell_name))
 console:log(tostring("2 " .. spellbook:get_spell_slot(2).spell_data.spell_name))
