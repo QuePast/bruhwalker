@@ -1,3 +1,7 @@
+-- Dont think it would help with glitches and freezing
+-- Will check once again a bit later
+-- Work Suspended
+
 function class(name)
  _G[name] = {}
  _G[name].__index = _G[name]
