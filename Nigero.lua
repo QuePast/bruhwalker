@@ -12,7 +12,7 @@ screen_size = game.screen_size
 xmid = screen_size.width / 2 -- middle of the screen
 ymid = screen_size.height / 2 -- middle of the screen
 
-xsprite = xmin - 50 -- sprite size 100px
+xsprite = xmid - 50 -- sprite size 100px
 ysprite = ymid - 50 -- sprite size 100px
 
 function distance(x1, y1, x2, y2) -- distance between two points
