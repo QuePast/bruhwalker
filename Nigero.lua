@@ -31,16 +31,25 @@ end
 local function SolveRed(x, y)
 	m = game.mouse_2d
 	rvalue = distance(m.x, m.y, r.x, r.y)
+	if rvalue >= 255 then
+		rvalue = 255
+	end
 end
 
 local function SolveGreen(x, y)
 	m = game.mouse_2d
 	gvalue = distance(m.x, m.y, g.x, g.y)
+	if gvalue >= 255 then 
+		gvalue = 255
+	end
 end
 
 local function SolveBlue(x, y)
 	m = game.mouse_2d
 	bvalue = distance(m.x, m.y, b.x, b.y)
+	if bvalue >= 255 then
+		gvalue = 255
+	end
 end
 
 local function on_draw()
