@@ -36,7 +36,7 @@ local function on_tick()
 			game:send_emote(EMOTE_LAUGH)
 		end
 		if menu:get_value(recall) == 1 then
-			spellbook:cast_spell(0x13)
+			spellbook:cast_spell(13)
 		end
 		if menu:get_value(custommenu) == 1  then
 			spellbook:cast_spell_minimap(menu:get_value(customspell), 0.25, 100,100,100)
