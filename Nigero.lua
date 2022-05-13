@@ -10,23 +10,36 @@ local blackhole
 m = game.mouse_2d
 screen_size = game.screen_size
 
-xmid = screen_size.width / 2
-ymid = screen_size.height / 2
+xmid = screen_size.width / 2 -- middle of the screen
+ymid = screen_size.height / 2 -- middle of the screen
 
-xsprite = xmin - 50 -- sprite size 100
-ysprite = ymid - 50 -- sprite size 100
+xsprite = xmin - 50 -- sprite size 100px
+ysprite = ymid - 50 -- sprite size 100px
 
-function distance(x1, y1, x2, y2)
+function distance(x1, y1, x2, y2) -- distance between two points
 	return math.sqrt((x2-x1)^2 + (y2-y1)^2)
 end
 
 local function on_tick()
-	if left click down 
-		& x bigger than xsprite & x lower than xsprite + 100
-		& y bigger than ysprite & y lower than ysprite + 100
-		return distance(m.x, m.y, r.x, r.y)
-		return distance(m.x, m.y, g.x, g.y)
-		return distance(m.x, m.y, b.x, b.y)
+	if spellbook:key_down_int(0x01) and m.x >= xsprite and m.x <= xsprite + 100 and m.y >= ysprite and m.y <= ysprite + 100 then
+		SolveRed()
+		SolveGreen()
+		SolveBlue()
+		end
+	end
+end
+
+local function SolveRed(x, y)
+	rvalue = distance(m.x, m.y, r.x, r.y)
+end
+
+local function SolveGreen(x, y)
+	gvalue = distance(m.x, m.y, g.x, g.y)
+end
+
+local function SolveBlue(x, y)
+	bvalue = distance(m.x, m.y, b.x, b.y)
+end
 
 local function on_draw()
 	sprite:draw(xsprite, ysprite)
