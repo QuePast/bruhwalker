@@ -1,6 +1,5 @@
 -- Testing script for Desync exploit
 -- Basically spamming emotes + orbwalker at 40/40 click/tick delays make you teleport
--- If casting recall was internal it could be pretty big
 -- Working for Velkoz, Yasuo
 
 desync = menu:add_category("Desync exploit test")
