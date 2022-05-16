@@ -438,10 +438,14 @@ function on_draw()
 	end
 	
 	-- line from mouse pos to targer
---	if Heureka(target) ~= nil return end
+--	if Eureka(target) ~= nil return end
 --		targetd = game:world_to_screen(target.x, target.y, target.z)
 --		renderer:draw_line(mouse.x, mouse.y, targetd.x, targetd.y, 2, 255, 255, 255, 255)
 --	end
+end
+
+local function Eureka()
+	
 end
 
 -- 1. ENEMY PLAYERS ( NOT LUX W )
