@@ -20,12 +20,12 @@
     AutoUpdate()
 
 end
-V2 EXAMPLE
+V2 TABLE EXAMPLE
 	["Annie"] = {
+		{Slot = "Q", Type = Target, Qwindwall = true, Qcollision = false},
 		{Slot = "W", Type = Cone, Wwindwall = true, Wcollision = false},
 		{Slot = "R", Type = Circle, Rwindwall = true, Rcollision = false}
-	},    
--- Q, spell type(circular, line, charged), windwall, collision
+	},
 --]]
 Champs = {
 	["Aphelios"] = {
@@ -409,6 +409,7 @@ function on_tick()
 end
 
 function on_draw()
+	
 	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- Q + Color
 	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- W + Color
 	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- E + Color
