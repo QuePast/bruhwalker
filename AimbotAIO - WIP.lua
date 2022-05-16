@@ -267,6 +267,8 @@ Champs = {
 }
 
 pred:use_prediction()
+--local pred = _G.Prediction
+local myHero = game.local_player
 
 local blah = { ["Q"] = "Q", ["W"] = "W", ["E"] = "E", ["R"] = "R" }
 local keybindings = { ["Q"] = "81", ["W"] = "87", ["E"] = "69", ["R"] = "82" }
@@ -410,16 +412,36 @@ function on_tick()
 end
 
 function on_draw()
-	local_player = game:get_local_player()
-	origin = local_player.origin
-	x, y, z = origin.x, origin.y, origin.z
-
-	renderer:draw_circle(x, y, z, qrange, rq, gq, bq, aq) -- Q + RGB A
-	renderer:draw_circle(x, y, z, wrange, r, g, b, a) -- W + RGB A
-	renderer:draw_circle(x, y, z, erange, r, g, b, a) -- E + RGB A
-	renderer:draw_circle(x, y, z, rrange, r, g, b, a) -- R + RGB A
-
-	renderer:draw_line(xmouse, ymouse, x2, y2, w, r, g, b, a) -- Draw target mouse.pos <100> target
+	origin = myHero.origin
+	mouse_pos = game.mouse_pos
+	
+	-- spell drawings
+	if menu:get_value(xxxx) == 1 then
+	renderer:draw_circle(origin.x, origin.y, origin.z, aarange, raa, gaa, baa, aaa) -- Q + RGB A
+	end
+	if menu:get_value(xxxx) == 1 then
+	renderer:draw_circle(origin.x, origin.y, origin.z, qrange, rq, gq, bq, aq) -- Q + RGB A
+	end
+	if menu:get_value(xxxx) == 1 then
+	renderer:draw_circle(origin.x, origin.y, origin.z, wrange, rw, gw, bw, aw) -- W + RGB A
+	end
+	if menu:get_value(xxxx) == 1 then
+	renderer:draw_circle(origin.x, origin.y, origin.z, erange, re, ge, be, ae) -- E + RGB A
+	end
+	if menu:get_value(xxxx) == 1 then
+	renderer:draw_circle(origin.x, origin.y, origin.z, rrange, rr, gr, br, ar) -- R + RGB A
+	end
+	
+	-- target search circle
+	if menu:get_value(xxxx) == 1 then
+	renderer:draw_circle(mouse_pos.x, mouse_pos.y, mouse_pos.z, searchrange, rt, gt, bt, at) -- R + RGB A
+	end
+	
+	-- line from mouse pos to targer
+--	if Heureka(target) ~= nil return end
+--		targetd = game:world_to_screen(target.x, target.y, target.z)
+--		renderer:draw_line(mouse.x, mouse.y, targetd.x, targetd.y, 2, 255, 255, 255, 255)
+--	end
 end
 
 -- 1. ENEMY PLAYERS ( NOT LUX W )
