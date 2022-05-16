@@ -20,8 +20,13 @@
     AutoUpdate()
 
 end
---]]
+V2 EXAMPLE
+	["Annie"] = {
+		{Slot = "W", Type = Cone, Wwindwall = true, Wcollision = false},
+		{Slot = "R", Type = Circle, Rwindwall = true, Rcollision = false}
+	},    
 -- Q, spell type(circular, line, charged), windwall, collision
+--]]
 Champs = {
 	["Aphelios"] = {
 		{Slot = "Q", Qwindwall = true, Qcollision = true},
@@ -401,6 +406,14 @@ function on_tick()
 			end
 		end
 	end
+end
+
+function on_draw()
+	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- Q + Color
+	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- W + Color
+	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- E + Color
+	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- R + Color
+	renderer:draw_line(x, y, x2, y2, w, r, g, b, a) -- Draw target mouse.pos <100> target
 end
 
 -- 1. ENEMY PLAYERS ( NOT LUX W )
