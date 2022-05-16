@@ -24,7 +24,6 @@ local function on_tick()
 		SolveRed()
 		SolveGreen()
 		SolveBlue()
-		end
 	end
 end
 
