@@ -24,6 +24,7 @@ V2 TABLE EXAMPLE
 	["Annie"] = {
 		{Slot = "Q", Type = Target, Qwindwall = true, Qcollision = false},
 		{Slot = "W", Type = Cone, Wwindwall = true, Wcollision = false},
+		{Slot = "E", Type = Target, Wwindwall = true, Wcollision = false}, IS IT TARGET THOUGH? TEST
 		{Slot = "R", Type = Circle, Rwindwall = true, Rcollision = false}
 	},
 --]]
@@ -409,12 +410,16 @@ function on_tick()
 end
 
 function on_draw()
-	
-	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- Q + Color
-	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- W + Color
-	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- E + Color
-	renderer:draw_circle(x, y, z, radius, r, g, b, a) -- R + Color
-	renderer:draw_line(x, y, x2, y2, w, r, g, b, a) -- Draw target mouse.pos <100> target
+	local_player = game:get_local_player()
+	origin = local_player.origin
+	x, y, z = origin.x, origin.y, origin.z
+
+	renderer:draw_circle(x, y, z, qrange, rq, gq, bq, aq) -- Q + RGB A
+	renderer:draw_circle(x, y, z, wrange, r, g, b, a) -- W + RGB A
+	renderer:draw_circle(x, y, z, erange, r, g, b, a) -- E + RGB A
+	renderer:draw_circle(x, y, z, rrange, r, g, b, a) -- R + RGB A
+
+	renderer:draw_line(xmouse, ymouse, x2, y2, w, r, g, b, a) -- Draw target mouse.pos <100> target
 end
 
 -- 1. ENEMY PLAYERS ( NOT LUX W )
