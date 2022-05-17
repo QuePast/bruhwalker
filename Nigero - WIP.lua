@@ -11,8 +11,8 @@ xsprite = xmid - 50 -- sprite size 100px
 ysprite = ymid - 50 -- sprite size 100px
 
 local r = {xmid, ymid+85}
-local g = {xmid +(math.sin(30)*85), ymid -(math.cos(30)*85)}
-local b = {xmid -(math.sin(30)*85), ymid -(math.cos(30)*85)}
+local g = {xmid -(math.cos(30)*85), ymid -(math.sin(30)*85)}
+local b = {xmid -(math.cos(30)*85), ymid -(math.sin(30)*85)}
 local a
 
 function distance(x1, y1, x2, y2) -- distance between two points
@@ -20,8 +20,8 @@ function distance(x1, y1, x2, y2) -- distance between two points
 end
 
 function on_tick()
-	--if spellbook:key_up_down(1) and 
 	m = game.mouse_2d
+	--if spellbook:key_up_down(1) and 
 	if m.x >= xsprite and m.x <= xsprite + 100 and m.y >= ysprite and m.y <= ysprite + 100 then
 		SolveRed()
 		SolveGreen()
@@ -30,16 +30,15 @@ function on_tick()
 end
 
 function SolveRed(x, y)
-	rvalue = distance(m.x, m.y, r[1], r[2])
+	rvalue = 255 - distance(m.x, m.y, r[1], r[2])
 			console:log(tostring(rvalue))
-	if rvalue >= 255 then
-		rvalue = 255
+	if rvalue < 0 then
+		rvalue = 0
 		console:log(tostring(rvalue))
 	end
 end
 
 function SolveGreen(x, y)
-	m = game.mouse_2d
 	gvalue = distance(m.x, m.y, g[1], g[2])
 	if gvalue >= 255 then 
 		gvalue = 255
@@ -47,17 +46,21 @@ function SolveGreen(x, y)
 end
 
 function SolveBlue(x, y)
-	m = game.mouse_2d
 	bvalue = distance(m.x, m.y, b[1], b[2])
 	if bvalue >= 255 then
 		gvalue = 255
 	end
 end
 
-local function on_draw()
+function on_draw()
 --	sprite:draw(xsprite, ysprite)
 --	renderer:draw_rect(xsprite, ysprite, 100, 100, rvalue, gvalue, bvalue, 100)
+	renderer:draw_text(m.x + 50, m.y + 100, tostring(rvalue), 255, 255, 255, 255)
+	renderer:draw_text(m.x + 50, m.y + 200, tostring(gvalue), 255, 255, 255, 255)
+	renderer:draw_text(m.x + 50, m.y + 300, tostring(bvalue), 255, 255, 255, 255)
 end
+
 --]]
+
 client:set_event_callback("on_draw", on_draw)
 client:set_event_callback("on_tick", on_tick)
