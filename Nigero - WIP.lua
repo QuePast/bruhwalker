@@ -62,14 +62,14 @@ function on_draw()
 	sprite:draw(xsprite, ysprite)
 --	renderer:draw_rect(xsprite, ysprite+255, 255, 255, rvalue, gvalue, bvalue, 255)
 
---	renderer:draw_line(xmid - (255/2), ymid - (255/2), xmid - (255/2), ymid + (255/2), 1, 255, 255, 255, 255)
---	renderer:draw_line(xmid - (255/2), ymid + (255/2), xmid + (255/2), ymid + (255/2), 1, 255, 255, 255, 255)
---	renderer:draw_line(xmid + (255/2), ymid + (255/2), xmid + (255/2), ymid - (255/2), 1, 255, 255, 255, 255)
---	renderer:draw_line(xmid + (255/2), ymid - (255/2), xmid - (255/2), ymid - (255/2), 1, 255, 255, 255, 255)
+	renderer:draw_line(xmid - (255/2), ymid - (255/2), xmid - (255/2), ymid + (255/2), 1, 255, 255, 255, 255)
+	renderer:draw_line(xmid - (255/2), ymid + (255/2), xmid + (255/2), ymid + (255/2), 1, 255, 255, 255, 255)
+	renderer:draw_line(xmid + (255/2), ymid + (255/2), xmid + (255/2), ymid - (255/2), 1, 255, 255, 255, 255)
+	renderer:draw_line(xmid + (255/2), ymid - (255/2), xmid - (255/2), ymid - (255/2), 1, 255, 255, 255, 255)
 	
---	renderer:draw_text(r[1], r[2], "R " .. tostring(rvalue), rvalue, gvalue, bvalue, 255)
---	renderer:draw_text(g[1], g[2], "G " .. tostring(gvalue), rvalue, gvalue, bvalue, 255)
---	renderer:draw_text(b[1], b[2], "B " .. tostring(bvalue), rvalue, gvalue, bvalue, 255)
+	renderer:draw_text(xsprite - 50, ysprite, "R " .. tostring(rvalue), rvalue, gvalue, bvalue, 255)
+	renderer:draw_text(xsprite - 50, ysprite + 20, "G " .. tostring(gvalue), rvalue, gvalue, bvalue, 255)
+	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(bvalue), rvalue, gvalue, bvalue, 255)
 end
 
 client:set_event_callback("on_draw", on_draw)
