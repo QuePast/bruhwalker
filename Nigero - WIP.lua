@@ -1,3 +1,13 @@
+--[[
+-- test opacity
+1. Fix scale = menu:add_...
+2. Unlock it from 1:1 format
+3. Some math behind scalability
+4. Add manual input
+5. Drawing dot into sprite
+6. Check moving rectangles pk code and steal it if it sucks less than my solution xD
+--]]
+
 if file_manager:file_exists("test.png") then
 	sprite = renderer:add_sprite("test.png", 255, 255)
 end
