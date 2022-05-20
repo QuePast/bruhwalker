@@ -18,7 +18,7 @@
     end
     
     AutoUpdate()
-Credits idea -- I am aiming by Klokje
+Credits idea -- I am aiming by Klokje circa 2014
 end
 V2 TABLE EXAMPLE
 	["Annie"] = {
