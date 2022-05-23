@@ -6,7 +6,7 @@ fix = menu:add_checkbox("Run fix", fixcat, 0) -- fake button
 function on_tick()
 	if menu:get_value(anal) == 1 then
 		for i = 0, 65 do
-			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" then
+			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" then -- ++ and game:is_key_down(i)
 				console:log(tostring((i) .. " " .. spellbook:get_spell_slot(i).spell_data.spell_name .. " " .. game:is_key_down(i)))
 			end
 		end
