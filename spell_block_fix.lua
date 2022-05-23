@@ -7,7 +7,7 @@ function on_tick()
 	local size = 65
 	if menu:get_value(anal) == 1 then
 		for i = -1, size do
-			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" and game:is_key_down(i) then -- returns permapressed spells
+			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" then -- returns permapressed spells
 				console:log(tostring(i) .. ". " .. spellbook:get_spell_slot(i).spell_data.spell_name)
 			end
 		end
