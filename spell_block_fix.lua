@@ -23,7 +23,7 @@ function on_tick()
 		spellbook:key_up_int(0x43) -- C
 		spellbook:key_up_int(0x56) -- V
 		spellbook:key_up_int(0x58) -- X
-		console:log("Fixed internal Q/W/E/R")
+		console:log("Fixed internal Q/W/E/R/M1/Space/C/V/X")
 		for i = 0, 65 do
 			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" then -- ++ and game:is_key_down(i)
 				spellbook:key_up(i)
