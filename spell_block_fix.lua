@@ -28,7 +28,10 @@ function on_tick()
 		for i = -1, size do
 				spellbook:key_up(i)
 		end
-
+		spellbook:key_up(SLOT_Q)
+		spellbook:key_up(SLOT_W)
+		spellbook:key_up(SLOT_E)
+		spellbook:key_up(SLOT_R)
 		console:log("Fixed external spells")
 		menu:set_value(fix, 0)
 	end
