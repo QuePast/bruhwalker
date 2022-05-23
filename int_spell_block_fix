@@ -1,9 +1,0 @@
-spellbook:key_up(0)
-spellbook:key_up(1)
-spellbook:key_up(2)
-spellbook:key_up(3)
-
-spellbook:key_up_int(key)
-spellbook:key_up_int(key)
-spellbook:key_up_int(key)
-spellbook:key_up_int(key)
