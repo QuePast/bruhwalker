@@ -8,7 +8,7 @@ function on_tick()
 	if menu:get_value(anal) == 1 then
 		for i = -1, size do
 			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" and game:is_key_down(i) then -- returns permapressed spells
-				console:log(tostring(i) .. " " .. spellbook:get_spell_slot(i).spell_data.spell_name .. " " .. tostring((game:is_key_down(i))))
+				console:log(tostring(i) .. ". " .. spellbook:get_spell_slot(i).spell_data.spell_name)
 			end
 		end
 		menu:set_value(anal, 0)			
@@ -25,14 +25,14 @@ function on_tick()
 		spellbook:key_up_int(0x56) -- V
 		spellbook:key_up_int(0x58) -- X
 		console:log("Fixed internal Q/W/E/R/M1/Space/C/V/X")
-		for i = -1, size do
-				spellbook:key_up(i)
-		end
-		spellbook:key_up(SLOT_Q)
-		spellbook:key_up(SLOT_W)
-		spellbook:key_up(SLOT_E)
-		spellbook:key_up(SLOT_R)
-		console:log("Fixed external spells")
+		--for i = -1, size do
+		--		spellbook:key_up(i)
+		--end
+		spellbook:key_up(0x51)
+		spellbook:key_up(0x57)
+		spellbook:key_up(0x45)
+		spellbook:key_up(0x52)
+		console:log("Fixed external")
 		menu:set_value(fix, 0)
 	end
 end
