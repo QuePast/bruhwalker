@@ -6,8 +6,9 @@ fix = menu:add_checkbox("Run fix", fixcat, 0) -- fake button
 function on_tick()
 	if menu:get_value(anal) == 1 then
 		for i = 0, 65 do
-			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" then -- ++ and game:is_key_down(i)
-				console:log(tostring((i) .. " " .. spellbook:get_spell_slot(i).spell_data.spell_name .. " " .. game:is_key_down(i)))
+			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" and game:is_key_down(i) then -- returns permapressed spells
+				console:log(tostring((i) .. " " .. spellbook:get_spell_slot(i).spell_data.spell_name))
+				console:log(tostring(game:is_key_down(i)))
 			end
 		end
 		menu:set_value(anal, 0)			
@@ -24,12 +25,14 @@ function on_tick()
 		spellbook:key_up_int(0x56) -- V
 		spellbook:key_up_int(0x58) -- X
 		console:log("Fixed internal Q/W/E/R/M1/Space/C/V/X")
+		
 		for i = 0, 65 do
-			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" then -- ++ and game:is_key_down(i)
+			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" and game:is_key_down(i) then
 				spellbook:key_up(i)
-				console:log("Fixed external spells")
 			end
 		end
+
+		console:log("Fixed external spells")
 		menu:set_value(fix, 0)
 	end
 end
