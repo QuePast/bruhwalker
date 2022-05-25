@@ -1,7 +1,7 @@
 --[[
 -- test opacity
 0. Add opacity changer
-1. Fix scalability = menu:add_...
+1. Fix scalability = menu:add_slider...
 - Unlock it from 1:1 format
 - Some math behind scalability
 4. Add manual input
