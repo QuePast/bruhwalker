@@ -13,7 +13,7 @@ function on_tick()
 		end
 
 		for i = 0, 255 do
-			hexkey = string.format("%X", (i) * 255)
+			hexkey = string.format("%X", i)
 			console:log(tostring(hexkey))
 			if game:is_key_down(hexkey) == true then
 				console:log(tostring(hexkey) .. " VK is pressed")
