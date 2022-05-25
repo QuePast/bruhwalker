@@ -1,9 +1,9 @@
 --[[
 -- test opacity
 0. Add opacity changer
-1. Fix scale = menu:add_...
-2. Unlock it from 1:1 format
-3. Some math behind scalability
+1. Fix scalability = menu:add_...
+- Unlock it from 1:1 format
+- Some math behind scalability
 4. Add manual input
 5. Drawing dot into sprite
 6. Check moving rectangles pk code and steal it if it sucks less than my solution xD
@@ -27,7 +27,7 @@ scale = menu:add_slider("Scale", config, 50, 1000, 255)
 local r = xmid + (255/2) -- right rectangle max line
 local g = ymid + (255/2) -- bottom rectangle max line
 local b = xmid - (255/2) -- left rectangle max line
-local a = ymid - (scale/2) -- opacity max line
+local a = ymid - (255/2) -- opacity max line
 
 function on_tick()
 	m = game.mouse_2d
@@ -91,9 +91,10 @@ function on_draw()
 	renderer:draw_line(xmid + (255/2), ymid + (255/2), xmid + (255/2), ymid - (255/2), 1, 255, 255, 255, 255) -- right
 	renderer:draw_line(xmid + (255/2), ymid - (255/2), xmid - (255/2), ymid - (255/2), 1, 255, 255, 255, 255) -- top
 	
-	renderer:draw_text(xsprite - 50, ysprite, "R " .. tostring(rvalue), rvalue, gvalue, bvalue, 255)
-	renderer:draw_text(xsprite - 50, ysprite + 20, "G " .. tostring(gvalue), rvalue, gvalue, bvalue, 255)
-	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(bvalue), rvalue, gvalue, bvalue, 255)
+	renderer:draw_text(xsprite - 50, ysprite, "R " .. tostring(rvalue), rvalue, gvalue, bvalue, avalue)
+	renderer:draw_text(xsprite - 50, ysprite + 20, "G " .. tostring(gvalue), rvalue, gvalue, bvalue, avalue)
+	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(bvalue), rvalue, gvalue, bvalue, avalue)
+	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(avalue), rvalue, gvalue, bvalue, avalue)
 end
 
 client:set_event_callback("on_draw", on_draw)
