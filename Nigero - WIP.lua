@@ -7,6 +7,7 @@
 4. Add manual input
 5. Drawing dot into sprite
 6. Check moving rectangles pk code and steal it if it sucks less than my solution xD
+7. Rework to "library"
 --]]
 
 if file_manager:file_exists("test.png") then
