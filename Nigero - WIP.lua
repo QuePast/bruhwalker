@@ -1,5 +1,6 @@
 --[[
 -- test opacity
+0. Add opacity changer
 1. Fix scale = menu:add_...
 2. Unlock it from 1:1 format
 3. Some math behind scalability
