@@ -31,7 +31,7 @@ local a = ymid - (scale/2) -- opacity max line
 
 function on_tick()
 	m = game.mouse_2d
-	--if spellbook:key_up_down(1) and 
+	--if game:is_key_down(0x01) and 
 	--if m.x >= xsprite and m.x <= xsprite + 100 and m.y >= ysprite and m.y <= ysprite + 100 then
 		SolveRed()
 		SolveGreen()
