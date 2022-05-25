@@ -6,9 +6,17 @@ fix = menu:add_checkbox("Run fix", fixcat, 0) -- fake button
 function on_tick()
 	local size = 65
 	if menu:get_value(anal) == 1 then
-		for i = -1, size do
-			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" then -- returns permapressed spells
-				console:log(tostring(i) .. ". " .. spellbook:get_spell_slot(i).spell_data.spell_name)
+		for i = 0, size do
+			if spellbook:get_spell_slot(i).spell_data.spell_name ~= "" then
+					console:log(tostring(i) .. ". " .. spellbook:get_spell_slot(i).spell_data.spell_name)
+			end
+		end
+
+		for i = 0, 255 do
+			hexkey = string.format("%X", (i) * 255)
+			console:log(tostring(hexkey))
+			if game:is_key_down(hexkey) == true then
+				console:log(tostring(hexkey) .. " VK is pressed")
 			end
 		end
 		menu:set_value(anal, 0)			
@@ -25,14 +33,12 @@ function on_tick()
 		spellbook:key_up_int(0x56) -- V
 		spellbook:key_up_int(0x58) -- X
 		console:log("Fixed internal Q/W/E/R/M1/Space/C/V/X")
-		--for i = -1, size do
-		--		spellbook:key_up(i)
-		--end
-		spellbook:key_up(0x51)
-		spellbook:key_up(0x57)
-		spellbook:key_up(0x45)
-		spellbook:key_up(0x52)
+		
+		for i = -1, size do
+				spellbook:key_up(i)
+		end
 		console:log("Fixed external")
+		
 		menu:set_value(fix, 0)
 	end
 end
