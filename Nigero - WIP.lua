@@ -14,7 +14,7 @@ xmid = screen_size.width / 2 -- middle of the screen
 ymid = screen_size.height / 2 -- middle of the screen
 
 config = menu:add_category("Color pick")
-scaler = menu:add_slider("Scale", config, 1, 5, 1)
+scaler = menu:add_slider("Scale", config, 1, 4, 1)
 scale = 255 * scaler 
 --??menu:get_value(scaler)??
 
