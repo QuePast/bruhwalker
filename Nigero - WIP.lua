@@ -98,5 +98,5 @@ function on_draw()
 	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(avalue), rvalue, gvalue, bvalue, avalue)
 end
 
-client:set_event_callback("on_draw", on_draw)
 client:set_event_callback("on_tick", on_tick)
+client:set_event_callback("on_draw", on_draw)
