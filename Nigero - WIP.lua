@@ -14,21 +14,14 @@ xmid = screen_size.width / 2 -- middle of the screen
 ymid = screen_size.height / 2 -- middle of the screen
 
 config = menu:add_category("Color pick")
-scaler = menu:add_slider("Scale", config, 1, 4, 1)
-scale = 255 * scaler 
---??menu:get_value(scaler)??
 
-xsprite = xmid - (scale/2) -- sprite size 255px
-ysprite = ymid - (scale/2) -- sprite size 255px
+xsprite = xmid - (255/2) -- sprite size 255px
+ysprite = ymid - (255/2) -- sprite size 255px
 
-local r = xmid + (scale/2) -- right rectangle max line
-local g = ymid + (scale/2) -- bottom rectangle max line
-local b = xmid - (scale/2) -- left rectangle max line
-local a = ymid - (scale/2) -- opacity max line
-
-if file_manager:file_exists("test.png") then
-	sprite = renderer:add_sprite("test.png", scale, scale)
-end
+local r = xmid + (255/2) -- right rectangle max line
+local g = ymid + (255/2) -- bottom rectangle max line
+local b = xmid - (255/2) -- left rectangle max line
+local a = ymid - (255/2) -- opacity max line
 
 function on_tick()
 	m = game.mouse_2d
@@ -72,7 +65,7 @@ function SolveBlue()
 end
 
 function SolveOpacity()
-	avalue = math.floor(255 - (a - m.y))
+	avalue = math.floor(255 + (a - m.y))
 	if avalue < 0 then 
 		avalue = 0
 	elseif avalue > 255 then 
@@ -81,21 +74,26 @@ function SolveOpacity()
 --	console:log(tostring(avalue))
 end
 
+if file_manager:file_exists("test.png") then
+	sprite = renderer:add_sprite("test.png", 255, 255)
+end
+
 function on_draw()
 	sprite:draw(xsprite, ysprite)
 --	renderer:draw_rect(xsprite, ysprite+255, 255, 255, rvalue, gvalue, bvalue, 255)
 	renderer:draw_rect(xsprite+260, ysprite, 40, 255, rvalue, gvalue, bvalue, avalue) -- opacity rectangle 
-	renderer:draw_line(xsprite+260, ysprite, xsprite+300, ysprite, rvalue, gvalue, bvalue, 255) -- opacity setting line -> y changing when mouse in region and left clicked
-	
+	if game:is_key_down(0x01) then
+		renderer:draw_line(xsprite+259, m.y, xsprite+299, m.y, 5, 255, 255, 255, 255) -- opacity setting line -> y changing when mouse in region and left clicked
+	end
 	renderer:draw_line(xmid - (255/2), ymid - (255/2), xmid - (255/2), ymid + (255/2), 1, 255, 255, 255, 255) -- left
 	renderer:draw_line(xmid - (255/2), ymid + (255/2), xmid + (255/2), ymid + (255/2), 1, 255, 255, 255, 255) -- bottom
 	renderer:draw_line(xmid + (255/2), ymid + (255/2), xmid + (255/2), ymid - (255/2), 1, 255, 255, 255, 255) -- right
 	renderer:draw_line(xmid + (255/2), ymid - (255/2), xmid - (255/2), ymid - (255/2), 1, 255, 255, 255, 255) -- top
 	
-	renderer:draw_text(xsprite - 50, ysprite, "R " .. tostring(rvalue), rvalue, gvalue, bvalue, avalue)
-	renderer:draw_text(xsprite - 50, ysprite + 20, "G " .. tostring(gvalue), rvalue, gvalue, bvalue, avalue)
-	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(bvalue), rvalue, gvalue, bvalue, avalue)
-	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(avalue), rvalue, gvalue, bvalue, avalue)
+	renderer:draw_text(xsprite - 50, ysprite, "R " .. tostring(rvalue), rvalue, gvalue, bvalue, 255)
+	renderer:draw_text(xsprite - 50, ysprite + 20, "G " .. tostring(gvalue), rvalue, gvalue, bvalue, 255)
+	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(bvalue), rvalue, gvalue, bvalue, 255)
+	renderer:draw_text(xsprite - 50, ysprite + 60, "A " .. tostring(avalue), rvalue, gvalue, bvalue, 255)
 end
 
 client:set_event_callback("on_tick", on_tick)
