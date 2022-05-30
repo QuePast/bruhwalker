@@ -85,7 +85,7 @@ function on_draw()
 	sprite:draw(xsprite, ysprite)
 --	renderer:draw_rect(xsprite, ysprite+255, 255, 255, rvalue, gvalue, bvalue, 255)
 	renderer:draw_rect(xsprite+260, ysprite, 40, 255, rvalue, gvalue, bvalue, avalue) -- opacity rectangle 
-	renderer:draw_line(xsprite+260, ysprite, xsprite+300, ysprite, rvalue, gvalue, bvalue, avalue) -- opacity setting line -> y changing when mouse in region and left clicked
+	renderer:draw_line(xsprite+260, ysprite, xsprite+300, ysprite, rvalue, gvalue, bvalue, 255) -- opacity setting line -> y changing when mouse in region and left clicked
 	
 	renderer:draw_line(xmid - (255/2), ymid - (255/2), xmid - (255/2), ymid + (255/2), 1, 255, 255, 255, 255) -- left
 	renderer:draw_line(xmid - (255/2), ymid + (255/2), xmid + (255/2), ymid + (255/2), 1, 255, 255, 255, 255) -- bottom
