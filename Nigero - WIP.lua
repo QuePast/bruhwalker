@@ -2,42 +2,42 @@
 -- test opacity
 0. Add opacity changer
 1. Fix scalability = menu:add_slider...
-- Unlock it from 1:1 format
 - Some math behind scalability
-4. Add manual input
+4. Add manual input with drawing into sprite
 5. Drawing dot into sprite
 6. Check moving rectangles pk code and steal it if it sucks less than my solution xD
 7. Rework to "library"
 --]]
-
-if file_manager:file_exists("test.png") then
-	sprite = renderer:add_sprite("test.png", 255, 255)
-end
-
 screen_size = game.screen_size
 
 xmid = screen_size.width / 2 -- middle of the screen
 ymid = screen_size.height / 2 -- middle of the screen
 
-xsprite = xmid - (255/2) -- sprite size 100px
-ysprite = ymid - (255/2) -- sprite size 100px
-
 config = menu:add_category("Color pick")
-scale = menu:add_slider("Scale", config, 50, 1000, 255)
+scaler = menu:add_slider("Scale", config, 1, 5, 1)
+scale = 255 * scaler 
+--??menu:get_value(scaler)??
 
-local r = xmid + (255/2) -- right rectangle max line
-local g = ymid + (255/2) -- bottom rectangle max line
-local b = xmid - (255/2) -- left rectangle max line
-local a = ymid - (255/2) -- opacity max line
+xsprite = xmid - (scale/2) -- sprite size 255px
+ysprite = ymid - (scale/2) -- sprite size 255px
+
+local r = xmid + (scale/2) -- right rectangle max line
+local g = ymid + (scale/2) -- bottom rectangle max line
+local b = xmid - (scale/2) -- left rectangle max line
+local a = ymid - (scale/2) -- opacity max line
+
+if file_manager:file_exists("test.png") then
+	sprite = renderer:add_sprite("test.png", scale, scale)
+end
 
 function on_tick()
 	m = game.mouse_2d
 	--if game:is_key_down(0x01) and 
 	--if m.x >= xsprite and m.x <= xsprite + 100 and m.y >= ysprite and m.y <= ysprite + 100 then
-		SolveRed()
-		SolveGreen()
-		SolveBlue()
-		SolveOpacity()
+		SolveRed() -- distance between mouse pos.x and red line
+		SolveGreen() -- green line and mouse pos y
+		SolveBlue() -- blue pos and mouse pos x
+		SolveOpacity() -- opacity max and mouse pos y
 	--end
 end
 
