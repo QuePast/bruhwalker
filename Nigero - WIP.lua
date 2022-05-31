@@ -82,14 +82,10 @@ function on_draw()
 	sprite:draw(xsprite, ysprite)
 --	renderer:draw_rect(xsprite, ysprite+255, 255, 255, rvalue, gvalue, bvalue, 255)
 	renderer:draw_rect(xsprite+260, ysprite, 40, 255, rvalue, gvalue, bvalue, avalue) -- opacity rectangle 
-	if game:is_key_down(0x01) then
+	if game:is_key_down(0x01) and m.x >= xsprite+259 and m.x <= xsprite+299 and m.y >= ysprite and m.y <= ysprite+255 then
 		renderer:draw_line(xsprite+259, m.y, xsprite+299, m.y, 5, 255, 255, 255, 255) -- opacity setting line -> y changing when mouse in region and left clicked
 	end
-	renderer:draw_line(xmid - (255/2), ymid - (255/2), xmid - (255/2), ymid + (255/2), 1, 255, 255, 255, 255) -- left
-	renderer:draw_line(xmid - (255/2), ymid + (255/2), xmid + (255/2), ymid + (255/2), 1, 255, 255, 255, 255) -- bottom
-	renderer:draw_line(xmid + (255/2), ymid + (255/2), xmid + (255/2), ymid - (255/2), 1, 255, 255, 255, 255) -- right
-	renderer:draw_line(xmid + (255/2), ymid - (255/2), xmid - (255/2), ymid - (255/2), 1, 255, 255, 255, 255) -- top
-	
+
 	renderer:draw_text(xsprite - 50, ysprite, "R " .. tostring(rvalue), rvalue, gvalue, bvalue, 255)
 	renderer:draw_text(xsprite - 50, ysprite + 20, "G " .. tostring(gvalue), rvalue, gvalue, bvalue, 255)
 	renderer:draw_text(xsprite - 50, ysprite + 40, "B " .. tostring(bvalue), rvalue, gvalue, bvalue, 255)
