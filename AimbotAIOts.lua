@@ -1,7 +1,3 @@
-function on_tick()
-	Eureka()
-end
-
 function on_draw()
 	mouse_pos = game.mouse_pos
 	
@@ -39,4 +35,4 @@ end
 
 console:log("AIO TS plugin loaded")
 client:set_event_callback("on_draw", on_draw)
-client:set_event_callback("on_tick", on_tick)
+--client:set_event_callback("on_tick", on_tick)
