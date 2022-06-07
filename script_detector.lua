@@ -22,12 +22,10 @@ end
 
 averages = {}
 local function on_new_path(obj, path)
-	if obj.is_valid then
+	if obj.is_valid and obj.is_enemy then
 		for i, player in ipairs(game.players) do
-			if player.object_id == obj.object_id and player.is_enemy then
-				table.insert(tracker[obj.object_id].path, path)
-				table.insert(tracker[obj.object_id].time, game.game_time)
-			end
+			table.insert(tracker[obj.object_id].path, path)
+			table.insert(tracker[obj.object_id].time, game.game_time)
 		end
 	end
 end
