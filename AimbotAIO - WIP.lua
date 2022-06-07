@@ -291,28 +291,39 @@ if Champs[game.local_player.champ_name] then
 		if spells.Slot == "Q" then 
 			spellmenuq = menu:add_keybinder("Q Key", spellsa, 81)
 			spellmenu_enableq = menu:add_checkbox("Q Enabled", spellsa, 1)
+			acqcheckbox = menu:add_keybinder("Autocast enabled", spellsa, 0) 
+			-- Check all targets in range and calculate prediction for all of them if 80%+ autocast spell
+			-- If they are retards = low clicks per minute(waypoints)(anti script detector), low KDA. Then lower autocast %% to 60%
 			qrange = spellbook:get_spell_slot(SLOT_Q).spell_data.cast_range
+			qdelay = spellbook:get_spell_slot(SLOT_Q).spell_data.cast_delay
 			qspeed = spellbook:get_spell_slot(SLOT_Q).spell_data.missile_speed
 			qwidth = spellbook:get_spell_slot(SLOT_Q).spell_data.width
 		elseif spells.Slot == "W" then 
 			spellmenuw = menu:add_keybinder("W Key", spellsa, 87)
 			spellmenu_enablew = menu:add_checkbox("W Enabled", spellsa, 1)
+			acwcheckbox = menu:add_keybinder("Autocast enabled", spellsa, 0)
 			wrange = spellbook:get_spell_slot(SLOT_W).spell_data.cast_range
+			wdelay = spellbook:get_spell_slot(SLOT_W).spell_data.cast_delay
 			wspeed = spellbook:get_spell_slot(SLOT_W).spell_data.missile_speed
 			wwidth = spellbook:get_spell_slot(SLOT_W).spell_data.width
 		elseif spells.Slot == "E" then 
 			spellmenue = menu:add_keybinder("E Key", spellsa, 69)
 			spellmenu_enablee = menu:add_checkbox("E Enabled", spellsa, 1)
+			acecheckbox = menu:add_keybinder("Autocast enabled", spellsa, 0)
 			erange = spellbook:get_spell_slot(SLOT_E).spell_data.cast_range
+			edelay = spellbook:get_spell_slot(SLOT_E).spell_data.cast_delay
 			espeed = spellbook:get_spell_slot(SLOT_E).spell_data.missile_speed
 			ewidth = spellbook:get_spell_slot(SLOT_E).spell_data.width
 		elseif spells.Slot == "R" then 
 			spellmenur = menu:add_keybinder("R Key", spellsa, 82)
 			spellmenu_enabler = menu:add_checkbox("R Enabled", spellsa, 1)	
+			acrcheckbox = menu:add_keybinder("Autocast enabled", spellsa, 0)
 			rrange = spellbook:get_spell_slot(SLOT_R).spell_data.cast_range
+			rdelay = spellbook:get_spell_slot(SLOT_R).spell_data.cast_delay
 			rspeed = spellbook:get_spell_slot(SLOT_R).spell_data.missile_speed
 			rwidth = spellbook:get_spell_slot(SLOT_R).spell_data.width
 		end
+		
 	end
 end 
 
@@ -321,7 +332,7 @@ local function Ready(spells)
 end
 
 local function CastQ(unit)
-	pred_output = pred:predict(qspeed, 0.2, qrange, qwidth, unit, Qcollision, Qwindwall)
+	pred_output = pred:predict(qspeed, qdelay, qrange, qwidth, unit, Qcollision, Qwindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
 		spellbook:cast_spell(SLOT_Q, 0.3, castPos.x, castPos.y, castPos.z)
@@ -329,7 +340,7 @@ local function CastQ(unit)
 end
 
 local function CastW(unit)
-	pred_output = pred:predict(wspeed, 0.2, wrange, wwidth, unit, Wcollision, Wwindwall)
+	pred_output = pred:predict(wspeed, wdelay, wrange, wwidth, unit, Wcollision, Wwindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
 		spellbook:cast_spell(SLOT_W, 0.3, castPos.x, castPos.y, castPos.z)
@@ -337,7 +348,7 @@ local function CastW(unit)
 end
 
 local function CastE(unit)
-	pred_output = pred:predict(espeed, 0.2, erange, ewidth, unit, Ecollision, Ewindwall)
+	pred_output = pred:predict(espeed, edelay, erange, ewidth, unit, Ecollision, Ewindwall)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
 		spellbook:cast_spell(SLOT_E, 0.3, castPos.x, castPos.y, castPos.z)
@@ -345,7 +356,7 @@ local function CastE(unit)
 end
 
 local function CastR(unit)
-	pred_output = pred:predict(rspeed, 0.2, rrange, rwidth, unit, Rcollision, Rcollision)
+	pred_output = pred:predict(rspeed, rdelay, rrange, rwidth, unit, Rcollision, Rcollision)
 	if pred_output.can_cast then
 		castPos = pred_output.cast_pos
 		spellbook:cast_spell(SLOT_R, 0.3, castPos.x, castPos.y, castPos.z)
@@ -353,7 +364,7 @@ local function CastR(unit)
 end
 
 local function Castspell_Q()
-	target = selector:find_target(qrange, cursor)
+	target = selector:find_target(qrange, mode_cursor)
 	if target.object_id ~= 0 and Ready(SLOT_Q) then
 		if myHero:distance_to(target.origin) <= qrange  then
 			CastQ(target)
@@ -362,7 +373,7 @@ local function Castspell_Q()
 end
 
 local function Castspell_W()
-	target = selector:find_target(wrange, cursor)
+	target = selector:find_target(wrange, mode_cursor)
 	if target.object_id ~= 0 and Ready(SLOT_W) then
 		if myHero:distance_to(target.origin) <= wrange  then
 			CastW(target)
@@ -371,7 +382,7 @@ local function Castspell_W()
 end
 
 local function Castspell_E()
-	target = selector:find_target(erange, cursor)
+	target = selector:find_target(erange, mode_cursor)
 	if target.object_id ~= 0 and Ready(SLOT_E) then
 		if myHero:distance_to(target.origin) <= erange  then
 			CastE(target)
@@ -380,7 +391,7 @@ local function Castspell_E()
 end
 
 local function Castspell_R()
-	target = selector:find_target(rrange, cursor)   
+	target = selector:find_target(rrange, mode_cursor)   
 	if target.object_id ~= 0 and Ready(SLOT_R) then
 		if myHero:distance_to(target.origin) <= rrange  then
 			CastR(target)
