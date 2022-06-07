@@ -294,6 +294,7 @@ if Champs[game.local_player.champ_name] then
 			acqcheckbox = menu:add_keybinder("Autocast enabled", spellsa, 0) 
 			-- Check all targets in range and calculate prediction for all of them if 80%+ autocast spell
 			-- If they are retards = low clicks per minute(waypoints)(anti script detector), low KDA. Then lower autocast %% to 60%
+			-- If they are living gods == cheaters with evade only cast at 90%+
 			qrange = spellbook:get_spell_slot(SLOT_Q).spell_data.cast_range
 			qdelay = spellbook:get_spell_slot(SLOT_Q).spell_data.cast_delay
 			qspeed = spellbook:get_spell_slot(SLOT_Q).spell_data.missile_speed
