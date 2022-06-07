@@ -31,13 +31,13 @@ cheater_limit = menu:add_slider("Cheater Clicks per Second Limit", waypoints, 5,
 time_limit_slider = menu:add_slider("Average Time Length", waypoints, 1, 20, 5, "Time interval to collect waypoints. Works best at 5 seconds, do not recommend changing.")
 
 local function GetEnemyHeroes()
-  local _EnemyHeroes = {}
-  players = game.players
-  for i, unit in ipairs(players) do
-    if GetDistance(!!!!!qrange!!!!!, unit) <= range and unit.is_valid and unit.is_enemy then
-      table.insert(_EnemyHeroes, unit)
-    end
-  end	
+local _EnemyHeroes = {}
+players = game.players
+	for i, unit in ipairs(players) do
+		if GetDistance(!!!!!qrange!!!!!, unit) <= range and unit.is_valid and unit.is_enemy then
+			table.insert(_EnemyHeroes, unit)
+		end
+	end	
 	return _EnemyHeroes
 end
 
@@ -66,27 +66,27 @@ local function on_new_path(obj, path)
     end
 end
 
-local function getdynamichitchance() --+ 20%
-   for i, player in pairs(tracker) do
-        for j, time in pairs(player) do
-            for k, actual_time in pairs(time) do
-                if type(actual_time) == "number" then
-                    if actual_time <= game.game_time - menu:get_value(time_limit_slider) then
-                        table.remove(tracker[i].path, k)
-                        table.remove(tracker[i].time, k)
-                    end
-                end
-            end
-        end
-    end
-    for i, player in pairs(tracker) do
-        averages[i] = #player.time / menu:get_value(time_limit_slider)
-        if averages[i] > tonumber(menu:get_value(cheater_limit)) and not cheater_list[i] and i ~= local_player.object_id then
-            cheater_list[i] = true
-            champ_name = game:get_object(i).champ_name
-            game:print_chat("<font color='#9a7aa0'>" .. tostring(champ_name) .. " is scripting!</font>")
-        end
-    end
+local function getdynamichitchance() -- ±15%
+	for i, player in pairs(tracker) do
+		for j, time in pairs(player) do
+			for k, actual_time in pairs(time) do
+				if type(actual_time) == "number" then
+					if actual_time <= game.game_time - menu:get_value(time_limit_slider) then
+						table.remove(tracker[i].path, k)
+						table.remove(tracker[i].time, k)
+					end
+				end
+			end
+		end
+	end
+	for i, player in pairs(tracker) do
+		averages[i] = #player.time / menu:get_value(time_limit_slider)
+		if averages[i] > tonumber(menu:get_value(cheater_limit)) and not cheater_list[i] and i ~= local_player.object_id then
+			cheater_list[i] = true
+			champ_name = game:get_object(i).champ_name
+			return 0.15 
+		end
+	end
 end
 
 local function on_tick()
@@ -99,7 +99,7 @@ local function on_tick()
       if output.hit_chance > (0.8 + getdynamichitchance()) and inv < 0.125 then
         local p = output.cast_pos
         spellbook:cast_spell(SLOT_Q, 0.25, p.x, p.y, p.z)
-        console:log("Casting spell") -- Finaly output
+        console:log("Casting spell") -- Final output
       end
     end
   end
