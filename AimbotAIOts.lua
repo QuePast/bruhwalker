@@ -9,12 +9,12 @@ end
 --Counts minions within range
 function GetMinionCount(pos, range)
 	count = 0
-    local enemies_in_range = {}
+	local enemies_in_range = {}
 	minions = game.minions
 	for i, minion in ipairs(minions) do
-	Range = range * range
+		Range = range * range
 		if minion.is_enemy and minion.is_valid and GetDistanceSqr(minion, pos) < Range then
-            table.insert(enemies_in_range, minion)
+			table.insert(enemies_in_range, minion)
 			count = count + 1
 		end
 	end
@@ -23,21 +23,21 @@ end
 
 --Returns closest minion
 function GetClosestMinion(pos, range)
-    local enemyMinions, _ = GetMinionCount(pos, range)
-    local closestMinion = nil
-    local closestMinionDistance = 9999 
-    for i, minion in pairs(enemyMinions) do
-        if minion then
-            if minion:distance_to(mousepos) < 300 then
-                local minionDistanceToMouse = minion:distance_to(mousepos)
-                if minionDistanceToMouse < closestMinionDistance then
-                    closestMinion = minion
-                    closestMinionDistance = minionDistanceToMouse
-                end
-            end
-        end
-    end
-    return closestMinion
+	local enemyMinions, _ = GetMinionCount(pos, range)
+	local closestMinion = nil
+	local closestMinionDistance = 9999 
+	for i, minion in pairs(enemyMinions) do
+		if minion then
+			if minion:distance_to(mouse_pos) < 300 then
+				local minionDistanceToMouse = minion:distance_to(mouse_pos)
+				if minionDistanceToMouse < closestMinionDistance then
+					closestMinion = minion
+					closestMinionDistance = minionDistanceToMouse
+				end
+			end
+		end
+	end
+	return closestMinion
 end
 
 function on_draw()
