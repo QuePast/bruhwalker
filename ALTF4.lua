@@ -1,3 +1,4 @@
+-- Crash the game in case a internall spellcast bug happens
 local function on_tick()
   if game:is_key_down(0x12) and game:is_key_down(0x73) then -- reworked to right alt since the left one doesnt work
     console:log(GAYFALL) -- kek
