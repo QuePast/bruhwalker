@@ -56,7 +56,7 @@ function on_draw()
 end
 
 function Eureka(target)
-	target = GetClosestMinion(pos, 300)
+	target = GetClosestMinion(mouse_pos, 300)
 	console:log(tostring(target))
 	--]]
 end
