@@ -1,5 +1,6 @@
 -- Deleted not needed stuff
 -- Preparation for HVH WAR
+-- CREDITS TO BEN AKA STONEB2
 local_player = game.local_player
 
 waypoints = menu:add_category("Script Detector")
@@ -45,10 +46,10 @@ local function on_tick()
 	end
 	for i, player in pairs(tracker) do
 		averages[i] = #player.time / 5
-		if averages[i] > 25 and not cheater_list[i] and i ~= local_player.object_id then
+		if averages[i] > 10 and not cheater_list[i] and i ~= local_player.object_id then
 			cheater_list[i] = true
 			champ_name = game:get_object(i).champ_name
-			game:print_chat("<font color='#9a7aa0'>" .. tostring(champ_name) .. " is scripting!</font>")
+			console:log(tostring(champ_name) .. " is scripting, moving to high hitchance only list!</font>")
 		end
 	end
 end
