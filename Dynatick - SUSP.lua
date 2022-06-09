@@ -1,6 +1,7 @@
 -- Dont think it would help with glitches and freezing
 -- Will check once again a bit later
 -- Work Suspended
+-- Supposed to keep calculations when not in teamfight or game.fps is stable and above some value
 
 function class(name)
  _G[name] = {}
