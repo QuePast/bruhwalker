@@ -37,10 +37,20 @@ players = game.players
 	return _EnemyHeroes
 end
 
-local function getdynamichitchance() -- ±15%
+local function getdynamichitchance(unit) -- ±15%
 	-- Ben script detector reworked
-	-- If unit.name == champ.name on cheater list return 0.15
-	else return 0
+	
+	--GetCheaters() -- goes to cheater plugin
+	
+	if cheater.list[game.local_player.champ_name] then
+	console:log(game.local_player.champ_name .. " is supported") else
+	console:log(game.local_player.champ_name .. " is not supported")
+	return
+	
+	if unit.name == cheater_list[i] = true then
+		return 0.15
+	else
+		return 0 
 	end
 end
 
