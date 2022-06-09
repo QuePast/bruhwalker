@@ -55,19 +55,20 @@ local function getdynamichitchance(unit) -- ±15%
 end
 
 local function on_tick()
-  if not spellbook:can_cast(SLOT_Q) or not pred:is_loaded() then return end
-  for _, unit in ipairs(game.players) do
-    if unit.is_valid and unit.is_enemy then
-      local output = pred:get_prediction(input, unit)
-      local inv = pred:get_invisible_duration(unit)
-      local getdynamichitchance(unit)
-      if output.hit_chance > (0.8 + getdynamichitchance()) and inv < 0.125 then
-        local p = output.cast_pos
-        spellbook:cast_spell(SLOT_Q, 0.25, p.x, p.y, p.z)
-        console:log("Casting spell") -- Final output
-      end
-    end
-  end
+	if not spellbook:can_cast(SLOT_Q) or not pred:is_loaded() then return end
+		for _, unit in ipairs(game.players) do
+			if unit.is_valid and unit.is_enemy then
+				local output = pred:get_prediction(input, unit)
+				local inv = pred:get_invisible_duration(unit)
+				local getdynamichitchance(unit)
+				if output.hit_chance > (0.8 + getdynamichitchance()) and inv < 0.125 then
+					local p = output.cast_pos
+					spellbook:cast_spell(SLOT_Q, 0.25, p.x, p.y, p.z)
+					console:log("Casting spell") -- Final output
+				end
+			end
+		end
+	end
 end
 
 client:set_event_callback("on_tick", on_tick)
