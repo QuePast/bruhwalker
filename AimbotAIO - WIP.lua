@@ -20,12 +20,24 @@
     AutoUpdate()
 Credits idea -- I am aiming by Klokje circa 2014
 end
+
+    > source - the unit that the skillshot will be launched from [game_object/vec3]
+    > hitbox - indicates if the unit bounding radius should be included in calculations [boolean]
+    > speed - the skillshot speed in units per second [number]
+    > range - the skillshot range in units [number]
+    > delay - the skillshot initial delay before release [number]
+    > radius - the skillshot radius (for non-conic skillshots) [number]
+    > angle - the skillshot angle (for conic skillshots) [number]
+    > collision - determines the collision flags for the skillshot [table]:
+       ({"minion", "ally_hero", "enemy_hero", "wind_wall", "terrain_wall"})
+    > type - the skillshot type: ("linear", "circular", "conic") [string]
+
 V2 TABLE EXAMPLE
 	["Annie"] = {
-		{Slot = "Q", Type = Target, Qwindwall = true, Qcollision = false},
-		{Slot = "W", Type = Cone, Wwindwall = true, Wcollision = false},
-		{Slot = "E", Type = Target, Wwindwall = true, Wcollision = false}, IS IT TARGET THOUGH? TEST
-		{Slot = "R", Type = Circle, Rwindwall = true, Rcollision = false}
+		{Slot = "Q", Type = target, collision = wind_wall},
+		{Slot = "W", Type = conic, collision = wind_wall},
+		{Slot = "E", Type = target, collision = wind_wall},
+		{Slot = "R", Type = circular, collision = wind_wall}
 	},
 --]]
 Champs = {
@@ -281,10 +293,7 @@ spellsa = menu:add_subcategory(game.local_player.champ_name .." settings", confi
 if Champs[game.local_player.champ_name] then
 	console:log( game.local_player.champ_name .. " is supported") else
 	console:log( game.local_player.champ_name .. " is not supported")
-	return 
 end
-
-if not Champs[game.local_player.champ_name] then return end
 
 if Champs[game.local_player.champ_name] then
 	for i, spells in pairs(Champs[game.local_player.champ_name]) do
