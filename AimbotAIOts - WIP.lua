@@ -48,6 +48,9 @@ function on_draw()
 	
 	screen_pos = game:world_to_screen(mouse_pos.x, mouse_pos.y, mouse_pos.z)
 	target = selector:find_target_minion(1000) -- REWORK TO EUREKA AIMBOT TARGET SELECTOR
+	-- target = selector:find_target(650, mode_cursor)
+	
+	--? qtarget = selector:find_target(qrange, mode_health)
 	-- target = Eureka()
 	if target.is_valid and GetDistance(target.origin, mouse_pos) <= 300 then
 		target_pos = game:world_to_screen(target.origin.x, target.origin.y, target.origin.z)
