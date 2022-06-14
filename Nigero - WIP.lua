@@ -7,7 +7,30 @@
 5. Drawing dot into sprite
 6. Check moving rectangles pk code and steal it if it sucks less than my solution xD
 7. Rework to "library"
---]]
+
+--- STUFF NEEDED IN SCRIPT ---
+
+if not file_manager:file_exists("Colorpick.lua") then
+	local file_name = "Colorpick.lua"
+	local url = "http://raw.githubusercontent.com/Radovann/bruhwalker/main/Colorpick.lua"   	
+	http:download_file(url, file_name)
+end
+
+if file_manager:file_exists("test.png") then
+	sprite = renderer:add_sprite("test.png", 255, 255)
+end
+
+screen_size = game.screen_size
+
+xmid = screen_size.width / 2 -- middle of the screen
+ymid = screen_size.height / 2 -- middle of the screen
+xsprite = xmid - (255/2) -- sprite size 255px
+ysprite = ymid - (255/2) -- sprite size 255px
+
+function on_draw()
+	sprite:draw(xsprite, ysprite)
+end
+------------------------------]]
 screen_size = game.screen_size
 
 xmid = screen_size.width / 2 -- middle of the screen
