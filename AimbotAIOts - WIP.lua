@@ -57,7 +57,13 @@ function on_draw()
 end
 
 function Eureka(target)
+	-- if GetClosestChampion(mouse_pos, 300) ~= nil then
+	--	target = GetClosestChampion(mouse_pos, 300)
+	--	return target
+	-- end
+	
 	target = GetClosestMinion(mouse_pos, 300)
+	
 	console:log(tostring(target))
 	--]]
 end
