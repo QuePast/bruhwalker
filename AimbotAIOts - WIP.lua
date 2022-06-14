@@ -1,6 +1,12 @@
 -- AIMBOT TARGET SELECTOR
-local function GetDistanceSqr(p1, p2)
-	return (p1.x - p2.x) *  (p1.x - p2.x) + ((p1.z or p1.y) - (p2.z or p2.y)) * ((p1.z or p1.y) - (p2.z or p2.y)) 
+function GetDistanceSqr(unit, p2)
+    p2 = p2 or local_player.origin
+    p2x, p2y, p2z = p2.x, p2.y, p2.z
+    p1 = unit.origin
+    p1x, p1y, p1z = p1.x, p1.y, p1.z
+    local dx = p1x - p2x
+    local dz = (p1z or p1y) - (p2z or p2y)
+    return dx*dx + dz*dz
 end
 
 local function GetDistance(p1, p2)
@@ -47,15 +53,16 @@ function on_draw()
 	renderer:draw_circle(mouse_pos.x, mouse_pos.y, mouse_pos.z, 300, 255, 255, 255, 255)
 	
 	screen_pos = game:world_to_screen(mouse_pos.x, mouse_pos.y, mouse_pos.z)
-	target = selector:find_target_minion(1000) -- REWORK TO EUREKA AIMBOT TARGET SELECTOR
-	-- target = selector:find_target(650, mode_cursor)
-	
-	--? qtarget = selector:find_target(qrange, mode_health)
-	-- target = Eureka()
-	if target.is_valid and GetDistance(target.origin, mouse_pos) <= 300 then
-		target_pos = game:world_to_screen(target.origin.x, target.origin.y, target.origin.z)
-		renderer:draw_circle(target.origin.x, target.origin.y, target.origin.z, target.bounding_radius, 255, 255, 255, 255)
-		renderer:draw_line(screen_pos.x, screen_pos.y, target_pos.x, target_pos.y, 1, 255, 255, 255, 255)
+	--target = selector:find_target(10000, mode_cursor) -- qrange,wrange etc..
+	--miniontarget = 
+	target = Eureka()
+	if target ~= nil then
+		if target.is_valid and GetDistanceSqr(target, mouse_pos) <= 300 then
+			console:log(tostring(target))
+			target_pos = game:world_to_screen(target.origin.x, target.origin.y, target.origin.z)
+			renderer:draw_circle(target.origin.x, target.origin.y, target.origin.z, target.bounding_radius, 255, 255, 255, 255)
+			renderer:draw_line(screen_pos.x, screen_pos.y, target_pos.x, target_pos.y, 1, 255, 255, 255, 255)
+		end
 	end
 end
 
@@ -64,11 +71,11 @@ function Eureka(target)
 	--	target = GetClosestChampion(mouse_pos, 300)
 	--	return target
 	-- end
+    local x, y, z = game.mouse_pos.x, game.mouse_pos.y, game.mouse_pos.z
+    local output = vec3.new(x, y, z)
 	
-	target = GetClosestMinion(mouse_pos, 300)
-	
-	console:log(tostring(target))
-	--]]
+	target = GetClosestMinion(output, 300)
+	return target
 end
 
 console:log("AIO TS plugin loaded")
