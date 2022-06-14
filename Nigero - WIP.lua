@@ -47,6 +47,7 @@ local b = xmid - (255/2) -- left rectangle max line
 local a = ymid - (255/2) -- opacity max line
 
 function on_tick()
+-- function solvecolor(mouse_pos.x, mouse_pos.y)
 	m = game.mouse_2d
 	--if game:is_key_down(0x01) and 
 	--if m.x >= xsprite and m.x <= xsprite + 100 and m.y >= ysprite and m.y <= ysprite + 100 then
