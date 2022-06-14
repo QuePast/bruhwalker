@@ -30,15 +30,15 @@ function on_draw()
 end
 ------------------------------]]
 screen_size = game.screen_size
-
+-- can delete
 xmid = screen_size.width / 2 -- middle of the screen
 ymid = screen_size.height / 2 -- middle of the screen
 
 config = menu:add_category("Color pick")
-
+-- can delete
 xsprite = xmid - (255/2) -- sprite size 255px
 ysprite = ymid - (255/2) -- sprite size 255px
-
+-- can delete
 local r = xmid + (255/2) -- right rectangle max line
 local g = ymid + (255/2) -- bottom rectangle max line
 local b = xmid - (255/2) -- left rectangle max line
@@ -64,7 +64,6 @@ function SolveRed()
 	elseif rvalue > 255 then 
 		rvalue = 255
 	end
---	console:log(tostring(rvalue))
 end
 
 function SolveGreen()
@@ -74,7 +73,6 @@ function SolveGreen()
 	elseif gvalue > 255 then 
 		gvalue = 255
 	end
---	console:log(tostring(gvalue))
 end
 
 function SolveBlue()
@@ -84,7 +82,6 @@ function SolveBlue()
 	elseif bvalue > 255 then 
 		bvalue = 255
 	end
---	console:log(tostring(bvalue))
 end
 
 function SolveOpacity()
@@ -94,7 +91,6 @@ function SolveOpacity()
 	elseif avalue > 255 then 
 		avalue = 255
 	end
---	console:log(tostring(avalue))
 end
 
 if file_manager:file_exists("test.png") then
@@ -103,10 +99,11 @@ end
 
 function on_draw()
 	sprite:draw(xsprite, ysprite)
---	renderer:draw_rect(xsprite, ysprite+255, 255, 255, rvalue, gvalue, bvalue, 255)
-	renderer:draw_rect(xsprite+260, ysprite, 40, 255, rvalue, gvalue, bvalue, avalue) -- opacity rectangle 
+	-- sprite:draw(screen_size.width / 2 - (255/2), screen_size.height - (255/2))
+	renderer:draw_rect(xsprite+260, ysprite, 40, 255, rvalue, gvalue, bvalue, avalue) -- opacity rectangle
 	if game:is_key_down(0x01) and m.x >= xsprite+259 and m.x <= xsprite+299 and m.y >= ysprite and m.y <= ysprite+255 then
-		renderer:draw_line(xsprite+259, m.y, xsprite+299, m.y, 5, 255, 255, 255, 255) -- opacity setting line -> y changing when mouse in region and left clicked
+		yvalue = m.y
+		renderer:draw_line(xsprite+259, yvalue, xsprite+299, yvalue, 5, rvalue, gvalue, bvalue, 255) -- opacity setting line -> y changing when mouse in region and left clicked
 	end
 
 	renderer:draw_text(xsprite - 50, ysprite, "R " .. tostring(rvalue), rvalue, gvalue, bvalue, 255)
