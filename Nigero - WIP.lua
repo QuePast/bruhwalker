@@ -22,8 +22,6 @@ end
 
 screen_size = game.screen_size
 
-xmid = screen_size.width / 2 -- middle of the screen
-ymid = screen_size.height / 2 -- middle of the screen
 xsprite = xmid - (255/2) -- sprite size 255px
 ysprite = ymid - (255/2) -- sprite size 255px
 
@@ -59,6 +57,7 @@ function on_tick()
 end
 
 function SolveRed()
+	-- rvalue = math.floor(255 - (((screen_size.width / 2) + (255/2)) - m.x))
 	rvalue = math.floor(255 - (r - m.x))
 	if rvalue < 0 then 
 		rvalue = 0
