@@ -2,6 +2,7 @@
 -- Will check once again a bit later
 -- Work Suspended
 -- Supposed to keep calculations when not in teamfight or game.fps is stable and above some value
+-- 6/2022 project revived
 
 function class(name)
  _G[name] = {}
