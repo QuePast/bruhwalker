@@ -58,3 +58,87 @@ function LagFreeCircles.DrawCircle2(x, y, z, radius, color)
         LagFreeCircles:DrawCircleNextLvl(x, y, z, radius, 1, color, 150) 
     end
 end
+
+
+----------------------------------------------------------------------------------------------------
+--[[
+- FPS graph tracker over-time
+- Drawing hijack raytracing
+ ]]--
+
+local Class = function(...)
+    local cls = {}
+    cls.__index = cls
+    function cls:New(...)
+        local instance = setmetatable({}, cls)
+        cls.__init(instance, ...)
+        return instance
+    end
+    cls.__call = function(_, ...) return cls:New(...) end
+    return setmetatable(cls, {__call = cls.__call})
+end
+
+downloadmorefps = menu:add_category("FPS Boost")
+hz = menu:add_slider("Refresh rate", downloadmorefps, 60, 240, 144, "Set your monitor refresh rate")
+
+--[[
+function LagFreeCircles:Quality()
+	fps = game.fps
+	fpsmin = menu:get_value(hz) * 0.95
+	-- reduced fpsmin in case user have locked fps
+	
+	if fps >= fpsmin then
+		quality = 100
+	else fps <= fpsmin then
+		quality = 100 * (fps / fpsmin)
+	end
+end
+]]--
+local Orbwalker = Class()
+
+function Orbwalker:__init()
+    self.geometry = Geometry:New()
+    client:set_event_callback("on_draw", function() self:OnDraw() end)
+	console:log("loaded")
+end
+
+--------------------
+-- Geometry class --
+
+_G.Geometry = Class()
+
+function Geometry:__init() end
+
+function Geometry:CircleToPolygon(center, radius, steps)
+    local result = {}
+    for i = 0, steps - 1 do
+        local phi = 2 * math.pi / steps * (i + 0.5)
+        local cx = center.x + radius * math.cos(phi)
+        local cy = center.z + radius * math.sin(phi)
+        table.insert(result, vec3.new(cx, center.y, cy))
+    end
+    return result
+end
+
+function Geometry:DrawPolygon(polygon, color, width)
+    local size, c, w = #polygon, color, width
+    if size < 3 then return end
+    for i = 1, size do
+        local p1, p2 = polygon[i], polygon[i % size + 1]
+        local a = game:world_to_screen_2(p1.x, p1.y, p1.z)
+        local b = game:world_to_screen_2(p2.x, p2.y, p2.z)
+        renderer:draw_line(a.x, a.y, b.x, b.y, w, c.r, c.g, c.b, c.a)
+    end
+end
+
+function Orbwalker:OnDraw()
+	m = game.turrets
+	for _, v in ipairs(m) do
+		local points = self.geometry:CircleToPolygon(v.origin, v.bounding_radius + 50, 5)
+		local color = {r = 255, g = 255, b = 255, a = 255}
+		
+		self.geometry:DrawPolygon(points, color, 2)
+	end
+end
+
+local orb = Orbwalker:New()
