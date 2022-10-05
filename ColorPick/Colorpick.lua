@@ -16,7 +16,6 @@ rvalueuser = 255
 gvalueuser = 255
 bvalueuser = 255
 avalueuser = 255
--- local r = (screen_size.width / 2) + (255/2) -- right rectangle max line
 
 function on_tick()
 	m = game.mouse_2d
@@ -25,6 +24,13 @@ function on_tick()
 	SolveGreen() -- green line and mouse pos y
 	SolveBlue() -- blue pos and mouse pos x
 	SolveOpacity() -- opacity max and mouse pos y
+end
+
+if file_manager:file_exists("colorpick.png") then
+	sprite = renderer:add_sprite("colorpick.png", 255, 255)
+else
+	http:download_file("https://raw.githubusercontent.com/QuePast/bruhwalker/main/ColorPick/colorpick.png", "colorpick.png")
+	sprite = renderer:add_sprite("colorpick.png", 255, 255)
 end
 
 function SolveRed()
@@ -62,11 +68,6 @@ function SolveOpacity()
 	elseif avalue > 255 then
 		avalue = 255
 	end
-end
-
--- Sprite check
-if file_manager:file_exists("colorpick.png") then
-	sprite = renderer:add_sprite("colorpick.png", 255, 255)
 end
 
 function on_draw()
