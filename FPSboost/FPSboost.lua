@@ -18,7 +18,7 @@ local function on_tick()
 		quality = math.floor(math.max(25, quality - 10))
 		tick = math.floor(math.max(20, (math.min(150, tick + 5))))
 		--console:clear()
-		console:log("BALANCING FPS")
+		--console:log("BALANCING FPS")
 	end
 
 	--console:log("Quality: ".. tostring(quality))
