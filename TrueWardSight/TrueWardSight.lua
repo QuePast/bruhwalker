@@ -1,3 +1,8 @@
+--V1 Done
+--V2 bush support when outside of the bush
+--V3 bush support when inside of the bush
+--V4 Merging visible points
+
 local library = require "MapLibrary"
 local map = library:New(SUMMONER_RIFT_MAP_ID)
 local myHero = game.local_player
@@ -11,6 +16,23 @@ function CircleToPolygon(center, radius, steps)
 		local cy = center.z + radius * math.sin(phi)
 		
 		local a,b = map:IntersectsWall(pos.x, pos.z, cx, cy)
+		
+		--[[
+		--V2 bush support when outside of the bush
+		
+		local c,d = map:IntersectsBush(pos.x, pos.z, cx, cy)
+		
+		if a or b and c or d then
+			if a,b distance_to > c,d then  
+				table.insert(result, vec3.new(c, center.y, d)) INSERT BUSH INTERSECT
+			elseif a,b distance_to <= c,d then
+				table.insert(result, vec3.new(A, center.y, B)) INSERT WALL
+		else
+			table.insert(result, vec3.new(cx, center.y, cy))
+		end
+		
+		--]]
+		
 
 		if a or b then
 			table.insert(result, vec3.new(a, center.y, b))
