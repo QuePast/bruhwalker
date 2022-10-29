@@ -1,7 +1,10 @@
 --V1 Done
 --V2 bush support when outside of the bush
 --V3 bush support when inside of the bush
+-- add blue trinket support
+-- fix the bug with flooring quality
 --V4 Merging visible points
+
 
 local library = require "MapLibrary"
 local map = library:New(SUMMONER_RIFT_MAP_ID)
