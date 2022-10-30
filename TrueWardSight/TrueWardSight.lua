@@ -1,10 +1,13 @@
 --[[
 Dev notes
---V1 Done
---V2 bush support when outside of the bush -- Done
---V3 bush support when inside of the bush -- Done
---add blue trinket support
+--V1 DONE
+--V2 bush support when outside of the bush -- DONE
+--V3 bush support when inside of the bush -- DONE
+--add blue trinket support	-- DONE
+--suck width from menu	-- DONE
 --fix the bug with flooring quality
+--only enemy wards
+--When holding trinket key show the 
 --V4 Performance optimization
 --V5 Merging visible points
 --]]
@@ -62,8 +65,8 @@ function CircleToPolygon(center, radius, steps)
 	return result
 end
 
-function DrawPolygon(polygon, width)
-	local size, w = #polygon, width
+function DrawPolygon(polygon)
+	local size = #polygon
 	local width = menu:get_value_string("circle thickness", "settings")
 	if size < 3 then return end
 
@@ -81,8 +84,12 @@ function on_draw()
 	local quality = (math.floor(menu:get_value_string("circle quality", "settings")/2.5)*2)
 	for _, v in ipairs(m) do
 		bush = map:IsBush(v.origin.x, v.origin.z)
+		if v.champ_name == "BlueTrinket" then
+			points = CircleToPolygon(v.origin, 500 , quality)
+		else
 		points = CircleToPolygon(v.origin, 900 , quality)
-		DrawPolygon(points, 2)
+		end
+		DrawPolygon(points)
 	end
 	menuvalue = menu:get_value_string("circle quality", "settings")
 end
