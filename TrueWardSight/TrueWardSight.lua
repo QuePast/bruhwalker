@@ -1,59 +1,62 @@
+--[[
+Dev notes
 --V1 Done
---V2 bush support when outside of the bush
---V3 bush support when inside of the bush
--- add blue trinket support
--- fix the bug with flooring quality
+--V2 bush support when outside of the bush -- Done
+--V3 bush support when inside of the bush -- Done
+--add blue trinket support
+--fix the bug with flooring quality
 --V4 Performance optimization
 --V5 Merging visible points
-
+--]]
 
 local library = require "MapLibrary"
 local map = library:New(SUMMONER_RIFT_MAP_ID)
 local myHero = game.local_player
 
---[[
-function ml.GetDistanceSqr(unit, p2)
-    p2 = p2 or local_player.origin
-    p2x, p2y, p2z = p2.x, p2.y, p2.z
-    p1 = unit.origin
-    p1x, p1y, p1z = p1.x, p1.y, p1.z
-    local dx = p1x - p2x
-    local dz = (p1z or p1y) - (p2z or p2y)
-    return dx*dx + dz*dz
+
+function distance(x1 ,y1 ,x2 ,y2)
+  local dx = x1 - x2
+  local dy = y1 - y2
+  return math.sqrt ( dx * dx + dy * dy )
 end
---]]
 
 function CircleToPolygon(center, radius, steps)
 	local result = {}
-	local pos = center
 	for i = 0, steps - 1 do
 		local phi = 2 * math.pi / steps * (i + 0.5)
 		local cx = center.x + radius * math.cos(phi)
 		local cy = center.z + radius * math.sin(phi)
 		
-		local a,b = map:IntersectsWall(pos.x, pos.z, cx, cy)
+		a,b = map:IntersectsWall(center.x, center.z, cx, cy)
+		c,d = map:IntersectsBush(center.x, center.z, cx, cy)
 		
-		--[[
-		--V2 bush support when outside of the bush
-		
-		local c,d = map:IntersectsBush(pos.x, pos.z, cx, cy)
-		
-		if a or b and c or d then
-			if a,b distance_to > c,d then  
-				table.insert(result, vec3.new(c, center.y, d)) INSERT BUSH INTERSECT
-			elseif a,b distance_to <= c,d then
-				table.insert(result, vec3.new(A, center.y, B)) INSERT WALL
-		else
-			table.insert(result, vec3.new(cx, center.y, cy))
+		if bush == true then
+			if a or b then
+				table.insert(result, vec3.new(a, center.y, b))
+			else
+				table.insert(result, vec3.new(cx, center.y, cy))
+			end
 		end
-		
-		--]]
-		
 
-		if a or b then
-			table.insert(result, vec3.new(a, center.y, b))
-		else
-			table.insert(result, vec3.new(cx, center.y, cy))
+		if bush == false or bush == nil then
+			if (a or b) and (c or d) then
+				alfa = distance(center.x, center.z, a ,b)
+				beta = distance(center.x, center.z, c ,d)
+				if alfa < beta then  
+					table.insert(result, vec3.new(a, center.y, b))
+				elseif alfa > beta then
+					table.insert(result, vec3.new(c, center.y, d))
+				end
+			elseif (a or b) and not (c or d) then
+				table.insert(result, vec3.new(a, center.y, b))
+				--console:log("wall")
+			elseif (c or d) and not (a or b) then
+				table.insert(result, vec3.new(c, center.y, d))
+				--console:log("bush")
+			else
+				table.insert(result, vec3.new(cx, center.y, cy))
+				--console:log("no collision")
+			end
 		end
 	end
 	return result
@@ -77,10 +80,12 @@ function on_draw()
 	m = game.wards
 	local quality = (math.floor(menu:get_value_string("circle quality", "settings")/2.5)*2)
 	for _, v in ipairs(m) do
-		local points = CircleToPolygon(v.origin, 900 , quality)
+		bush = map:IsBush(v.origin.x, v.origin.z)
+		points = CircleToPolygon(v.origin, 900 , quality)
 		DrawPolygon(points, 2)
 	end
 	menuvalue = menu:get_value_string("circle quality", "settings")
 end
 
+console:log("True ward loaded")
 client:set_event_callback("on_draw", on_draw)
