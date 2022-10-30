@@ -11,6 +11,18 @@ local library = require "MapLibrary"
 local map = library:New(SUMMONER_RIFT_MAP_ID)
 local myHero = game.local_player
 
+--[[
+function ml.GetDistanceSqr(unit, p2)
+    p2 = p2 or local_player.origin
+    p2x, p2y, p2z = p2.x, p2.y, p2.z
+    p1 = unit.origin
+    p1x, p1y, p1z = p1.x, p1.y, p1.z
+    local dx = p1x - p2x
+    local dz = (p1z or p1y) - (p2z or p2y)
+    return dx*dx + dz*dz
+end
+--]]
+
 function CircleToPolygon(center, radius, steps)
 	local result = {}
 	local pos = center
