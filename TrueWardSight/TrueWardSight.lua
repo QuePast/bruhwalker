@@ -3,7 +3,8 @@
 --V3 bush support when inside of the bush
 -- add blue trinket support
 -- fix the bug with flooring quality
---V4 Merging visible points
+--V4 Performance optimization
+--V5 Merging visible points
 
 
 local library = require "MapLibrary"
