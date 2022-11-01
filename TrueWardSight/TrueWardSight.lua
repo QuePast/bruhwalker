@@ -5,9 +5,8 @@ Dev notes
 --V3 bush support when inside of the bush -- DONE
 --add blue trinket support	-- DONE
 --suck width from menu	-- DONE
+-- added lazy fix is_on_screen for more fps -- DONE
 --fix the bug with flooring quality
---only enemy wards
---When holding trinket key show the 
 --V4 Performance optimization
 --V5 Merging visible points
 --]]
@@ -84,12 +83,14 @@ function on_draw()
 	local quality = (math.floor(menu:get_value_string("circle quality", "settings")/2.5)*2)
 	for _, v in ipairs(m) do
 		bush = map:IsBush(v.origin.x, v.origin.z)
-		if v.champ_name == "BlueTrinket" then
-			points = CircleToPolygon(v.origin, 500 , quality)
-		else
-		points = CircleToPolygon(v.origin, 900 , quality)
+		if v.is_on_screen then
+			if v.champ_name == "BlueTrinket" then
+				points = CircleToPolygon(v.origin, 500 , quality)
+			else
+			points = CircleToPolygon(v.origin, 900 , quality)
+			end
+			DrawPolygon(points)
 		end
-		DrawPolygon(points)
 	end
 	menuvalue = menu:get_value_string("circle quality", "settings")
 end
