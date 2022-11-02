@@ -6,6 +6,7 @@ Dev notes
 --add blue trinket support	-- DONE
 --suck width from menu	-- DONE
 -- added lazy fix is_on_screen for more fps -- DONE
+-- ONLY ENEMY WARDS
 --fix the bug with flooring quality
 --V4 Performance optimization
 --V5 Merging visible points
