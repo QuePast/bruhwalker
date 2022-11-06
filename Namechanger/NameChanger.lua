@@ -7,7 +7,6 @@ reset = menu:add_checkbox("Reset name", namechanger, 0)
 local function on_tick()
 	if menu:get_value(set) == 1 then
 	player:set_name(name)
-	if client.username == "Cryptooooor" then player:set_name("I am radovan cumslut please beg") end
 	end
 	
 	if menu:get_value(reset) == 1 then
