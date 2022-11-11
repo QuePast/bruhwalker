@@ -5,4 +5,4 @@ https://trello.com/b/M2iZq6ra/bruhwalker
 Secretary: Rajovan#2838
 
 https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
-![aaaa](https://user-images.githubusercontent.com/8728328/174456399-e68ee955-0653-45ac-b647-e24340a8ac8c.png)
+![aaaa](https://github.com/QuePast/bruhwalker/blob/main/image.png?raw=true)
