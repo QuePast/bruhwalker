@@ -5,7 +5,7 @@ do
 	if tonumber(web_version) ~= Version then
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/download.exe", "RajovanTracker//download.exe")
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/upload.exe", "RajovanTracker//upload.exe")
-		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/RajoTracker.lua", "RajovanTracker//RajoTracker.lua")	
+		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/RajovanTracker.lua", "RajovanTracker.lua")	
 	end
     end
     AutoUpdate()
