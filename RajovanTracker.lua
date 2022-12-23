@@ -12,8 +12,6 @@ do
 end
 
 function on_game_end()
-	if menu:get_value(getdata) == 1 then
-
 	-- START DOWNLOAD
 	filepathdownload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/download.exe"
 	os.execute(filepathdownload)
@@ -28,7 +26,6 @@ function on_game_end()
 	-- START UPLOAD
 	filepathupload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/upload.exe"
 	os.execute(filepathupload)
-
 end
 
 client:set_event_callback("on_game_end", on_game_end)
