@@ -3,7 +3,7 @@ getdata = menu:add_checkbox("Test", data, 0)
 
 do
     local function AutoUpdate()
-		local Version = 0.1
+		local Version = 0.3
         local web_version = http:get("https://raw.githubusercontent.com/TheShaunyboi/BruhWalkerEncrypted/main/Tracker/RajoTracker.lua.version.txt")
 		if not tonumber(web_version) == Version then
 			http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/download.exe", "RajovanTracker//download.exe")
