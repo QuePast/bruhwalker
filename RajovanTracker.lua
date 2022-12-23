@@ -1,7 +1,7 @@
 do
     local function AutoUpdate()
 	local Version = 0.4
-	local web_version = http:get("https://raw.githubusercontent.com/TheShaunyboi/BruhWalkerEncrypted/main/Tracker/RajoTracker.lua.version.txt")
+	local web_version = http:get("https://raw.githubusercontent.com/QuePast/bruhwalker/main/RajovanTracker/RajovanTracker.lua.version.txt")
 	if tonumber(web_version) ~= Version then
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/download.exe", "RajovanTracker//download.exe")
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/upload.exe", "RajovanTracker//upload.exe")
