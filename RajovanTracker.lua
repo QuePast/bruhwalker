@@ -6,7 +6,7 @@ do
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/download.exe", "RajovanTracker//download.exe")
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/upload.exe", "RajovanTracker//upload.exe")
 		http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/Tracker/RajoTracker.lua", "RajovanTracker//RajoTracker.lua")	
-		end
+	end
     end
     AutoUpdate()
 end
