@@ -3,14 +3,16 @@ config = menu:add_category("Color pick")
 keybind = menu:add_keybinder("Hotkey", config, 0x11)
 
 screen_size = game.screen_size
+sprite_size = 255
+half_size = sprite_size / 2
 
-xsprite = (screen_size.width / 2) - (255/2) -- Middle of the screen - (half of sprite width 255px)
-ysprite = (screen_size.height / 2) - (255/2) -- Middle of the screen - (half of sprite height 255px)
+xsprite = (screen_size.width / 2) - half_size
+ysprite = (screen_size.height / 2) - half_size
 
-r = (screen_size.width / 2) + (255/2) -- right rectangle max line
-g = (screen_size.height / 2) + (255/2) -- bottom rectangle max line
-b = (screen_size.width / 2) - (255/2) -- left rectangle max line
-a = (screen_size.height / 2) - (255/2) -- opacity max line
+red = (screen_size.width / 2) + half_size
+green = (screen_size.height / 2) + half_size
+blue = (screen_size.width / 2) - half_size
+alfa = (screen_size.height / 2) - half_size
 
 rvalueuser = 255
 gvalueuser = 255
@@ -34,53 +36,40 @@ else
 end
 
 function SolveRed()
-	--V2 rvalue = math.floor(255 - (((screen_size.width / 2) + (255/2)) - m.x))
-	rvalue = math.floor(255 - (r - m.x))
-	if rvalue < 0 then
-		rvalue = 0
-	elseif rvalue > 255 then
-		rvalue = 255
-	end
+	rvalue = update_colors(red, m.x, -1)
 end
 
 function SolveGreen()
-	gvalue = math.floor(255 - (g - m.y))
-	if gvalue < 0 then
-		gvalue = 0
-	elseif gvalue > 255 then
-		gvalue = 255
-	end
+	gvalue = update_colors(green, m.y, -1)
 end
 
 function SolveBlue()
-	bvalue = math.floor(255 + (b - m.x))
-	if bvalue < 0 then
-		bvalue = 0
-	elseif bvalue > 255 then
-		bvalue = 255
-	end
+	bvalue = update_colors(blue, m.x, 1)
 end
 
 function SolveOpacity()
-	avalue = math.floor(255 + (a - m.y))
-	if avalue < 0 then
-		avalue = 0
-	elseif avalue > 255 then
-		avalue = 255
+	avalue = update_colors(alfa, m.y, 1)
+end
+
+function update_colors(line, m, zeroing)
+	local value = math.floor(255 + (zeroing*(line - m)))
+	if value < 0 then
+		value = 0
+	elseif value > 255 then
+		value = 255
 	end
+	return value
 end
 
 function on_draw()
 	if game:is_key_down(menu:get_value(keybind)) then
-		if avalueuser == nil then avalueuser = 255 end
+		if not avalueuser then avalueuser = 255 end
 		-- Draw RGB sprite
 		sprite:draw(xsprite, ysprite)
 		
 		-- Draw dot in sprite with line; some additional boundaries because its hard to get 0 and 255 values
 		if game:is_key_down(0x01) and m.x >= xsprite - 5 and m.x <= xsprite + 260 and m.y >= ysprite - 5 and m.y <= ysprite + 260 then
-			rvalueuser = rvalue
-			gvalueuser = gvalue
-			bvalueuser = bvalue
+			rvalueuser, gvalueuser, bvalueuser = rvalue, gvalue, bvalue
 			renderer:draw_line(m.x-5, m.y, m.x+5, m.y , 10, 255, 255, 255, 255)
 		end
 
