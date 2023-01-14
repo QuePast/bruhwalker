@@ -20,7 +20,7 @@ do
     AutoUpdate()
 end
 
-function on_tick()
+function on_game_end()
 	if menu:get_value(getdata) == 1 then
 		-- START DOWNLOAD
 		--console:log("DOWNLOADING")
@@ -43,7 +43,7 @@ function on_tick()
 		filepathupload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/upload.vbs"
 		local handle = io.popen(filepathupload)
 		handle:close()
-		console:log("UPLOAD DONE")
+		--console:log("UPLOAD DONE")
 	
 		-- REMOVING TEMP FILES
 		--console:log("REMOVING TEMP FILES")
@@ -63,4 +63,4 @@ function on_tick()
 	end
 end
 
-client:set_event_callback("on_tick", on_tick)
+client:set_event_callback("on_game_end", on_game_end)
