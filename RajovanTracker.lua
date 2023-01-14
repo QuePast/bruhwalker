@@ -2,12 +2,17 @@ if not file_manager:directory_exists("RajovanTracker") then
     file_manager:create_directory("RajovanTracker")
 end
 
+data = menu:add_category("Data Mining")
+getdata = menu:add_checkbox("Test", data, 0)
+
 do
     local function AutoUpdate()
 		local Version = 0.4
 		local web_version = http:get("https://raw.githubusercontent.com/QuePast/bruhwalker/main/RajovanTracker/RajovanTracker.lua.version.txt")
 		if tonumber(web_version) ~= Version then
+			http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/RajovanTracker/download.vbs", "RajovanTracker//download.vbs")
 			http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/RajovanTracker/download.exe", "RajovanTracker//download.exe")
+			http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/RajovanTracker/upload.vbs", "RajovanTracker//upload.vbs")
 			http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/RajovanTracker/upload.exe", "RajovanTracker//upload.exe")
 			http:download_file("https://raw.githubusercontent.com/QuePast/bruhwalker/main/RajovanTracker.lua", "RajovanTracker.lua")	
 		end
@@ -15,24 +20,47 @@ do
     AutoUpdate()
 end
 
-function on_game_end()
-	-- START DOWNLOAD
-	filepathdownload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/download.exe"
-	os.execute("start /minimized ..filepathdownload")
+function on_tick()
+	if menu:get_value(getdata) == 1 then
+		-- START DOWNLOAD
+		--console:log("DOWNLOADING")
+		filepathdownload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/download.vbs"
+		local handle = io.popen(filepathdownload)
+		handle:close()
+		--console:log("DOWNLOADING DONE")
+		
+		-- WRITING
+		filepath = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/stats.txt"
+		file = io.open(filepath, "a+")
 
-	-- WRITING
-	filepath = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/stats.txt"
-	file = io.open(filepath, "a")
+		--console:log("WRITING")
+		file:write("\nChampion = " ..game.local_player.champ_name.. "; Kills = "..game.local_player.player_stats.kills.. "; Deaths = "..game.local_player.player_stats.deaths.. "; Assists = "..game.local_player.player_stats.assists.. "; Farm = "..game.local_player.player_stats.creepscore.. "; Scripts = ")
+		file:close()
+		--console:log("WRITING DONE")
+		
+		-- START UPLOAD
+		--console:log("START UPLOAD")
+		filepathupload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/upload.vbs"
+		local handle = io.popen(filepathupload)
+		handle:close()
+		console:log("UPLOAD DONE")
 	
-	-- Add defeat or win variable which we can export
-	-- Probably something like if our team nexus hp = 0 then win = false and print it in tracker
-	
-	file:write("\nChampion = " ..game.local_player.champ_name.. "; Kills = "..game.local_player.player_stats.kills.. "; Deaths = "..game.local_player.player_stats.deaths.. "; Assists = "..game.local_player.player_stats.assists.. ";; CS = "..player_stats.creepscore.. " Time = "..game.game_time.. "; Region = "..mission_info.region.. "; Map_Name = "..mission_info.map_name.. "; Mission = "..mission_info.mission.. "; Mode = "..mission_info.mode.. "; Map_id = "..mission_info.map_id.. "; Map_id = "..mission_info.match_id.. "; Map_id = "..mission_info.map_id.. "; ")
-	file:close()
-	
-	-- START UPLOAD
-	filepathupload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/upload.exe"
-	os.execute("start /minimized ..filepathupload")
+		-- REMOVING TEMP FILES
+		--console:log("REMOVING TEMP FILES")
+		tempd = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/tempd.txt"		
+		tempu = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/tempu.txt"
+		input = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/input.txt"
+		stats = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/stats.txt"
+
+		os.remove(tempd)
+		os.remove(tempu)
+		os.remove(input)
+		os.remove(stats)
+
+		--console:log("REMOVING TEMP FILES DONE")
+		
+		menu:set_value(getdata, 0)
+	end
 end
 
-client:set_event_callback("on_game_end", on_game_end)
+client:set_event_callback("on_tick", on_tick)
