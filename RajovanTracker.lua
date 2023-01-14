@@ -20,7 +20,7 @@ function on_game_end()
 	filepath = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/stats.txt"
 	file = io.open(filepath, "a")
 
-	file:write("\nChampion = " ..game.local_player.champ_name.. "; Kills = "..game.local_player.player_stats.kills.. "; Deaths = "..game.local_player.player_stats.deaths.. "; Assists = "..game.local_player.player_stats.assists.. "; Ping = "..game.ping.. "; Time = "..game.game_time.. "; Circle Thickness = "..menu:get_value_string("circle quality", "settings").. "; Tick = "..menu:get_value_string("tick", "settings").."; ")
+	file:write("\nChampion = " ..game.local_player.champ_name.. "; Kills = "..game.local_player.player_stats.kills.. "; Deaths = "..game.local_player.player_stats.deaths.. "; Assists = "..game.local_player.player_stats.assists.. "; Time = "..game.game_time.. "; ")
 	file:close()
 	
 	-- START UPLOAD
