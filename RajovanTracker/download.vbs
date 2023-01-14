@@ -1,1 +1,1 @@
-CreateObject("WScript.Shell").Run """" & "%LOCALAPPDATA%\leaguesense\scripts\RajovanTracker\download.bat""" & " /minimized /hidden", 0, True
+CreateObject("WScript.Shell").Run """" & "%LOCALAPPDATA%\leaguesense\scripts\RajovanTracker\download.exe""" & " /minimized /hidden", 0, True
