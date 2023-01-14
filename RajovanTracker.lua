@@ -1,3 +1,7 @@
+if not file_manager:directory_exists("RajovanTracker") then
+    file_manager:create_directory("RajovanTracker")
+end
+
 do
     local function AutoUpdate()
 		local Version = 0.4
