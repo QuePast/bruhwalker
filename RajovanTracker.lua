@@ -23,8 +23,11 @@ function on_game_end()
 	-- WRITING
 	filepath = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/stats.txt"
 	file = io.open(filepath, "a")
-
-	file:write("\nChampion = " ..game.local_player.champ_name.. "; Kills = "..game.local_player.player_stats.kills.. "; Deaths = "..game.local_player.player_stats.deaths.. "; Assists = "..game.local_player.player_stats.assists.. "; Time = "..game.game_time.. "; ")
+	
+	-- Add defeat or win variable which we can export
+	-- Probably something like if our team nexus hp = 0 then win = false and print it in tracker
+	
+	file:write("\nChampion = " ..game.local_player.champ_name.. "; Kills = "..game.local_player.player_stats.kills.. "; Deaths = "..game.local_player.player_stats.deaths.. "; Assists = "..game.local_player.player_stats.assists.. ";; CS = "..player_stats.creepscore.. " Time = "..game.game_time.. "; Region = "..mission_info.region.. "; Map_Name = "..mission_info.map_name.. "; Mission = "..mission_info.mission.. "; Mode = "..mission_info.mode.. "; Map_id = "..mission_info.map_id.. "; Map_id = "..mission_info.match_id.. "; Map_id = "..mission_info.map_id.. "; ")
 	file:close()
 	
 	-- START UPLOAD
