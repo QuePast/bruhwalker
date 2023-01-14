@@ -18,7 +18,7 @@ end
 function on_game_end()
 	-- START DOWNLOAD
 	filepathdownload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/download.exe"
-	os.execute(filepathdownload)
+	os.execute("start /minimized ..filepathdownload")
 
 	-- WRITING
 	filepath = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/stats.txt"
@@ -29,7 +29,7 @@ function on_game_end()
 	
 	-- START UPLOAD
 	filepathupload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/upload.exe"
-	os.execute(filepathupload)
+	os.execute("start /minimized ..filepathupload")
 end
 
 client:set_event_callback("on_game_end", on_game_end)
