@@ -2,9 +2,6 @@ if not file_manager:directory_exists("RajovanTracker") then
     file_manager:create_directory("RajovanTracker")
 end
 
-data = menu:add_category("Data Mining")
-getdata = menu:add_checkbox("Test", data, 0)
-
 do
     local function AutoUpdate()
 		local Version = 0.5
