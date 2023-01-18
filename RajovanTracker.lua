@@ -17,7 +17,7 @@ do
     AutoUpdate()
 end
 
-function on_game_end()
+function on_nexus_destroyed()
 	--console:log("DOWNLOADING")
 	filepathdownload = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/download.vbs"
 	local handle = io.popen(filepathdownload)
@@ -51,4 +51,4 @@ function on_game_end()
 	--console:log("REMOVING TEMP FILES DONE")
 end
 
-client:set_event_callback("on_game_end", on_game_end)
+client:set_event_callback("on_nexus_destroyed", on_nexus_destroyed)
