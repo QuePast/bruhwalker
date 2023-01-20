@@ -4,7 +4,7 @@ end
 
 do
     local function AutoUpdate()
-		local Version = 0.7
+		local Version = 0.8
 		local web_version = http:get("https://raw.githubusercontent.com/QuePast/bruhwalker/main/RajovanTracker/RajovanTracker.lua.version.txt")
 		if tonumber(web_version) ~= Version then
 			http:download_file("https://raw.githubusercontent.com/QuePast/Bruhwalker/main/RajovanTracker/download.vbs", "RajovanTracker//download.vbs")
