@@ -28,7 +28,7 @@ function on_nexus_destroyed()
 	filepath = os.getenv('LOCALAPPDATA') .."/leaguesense/scripts/RajovanTracker/stats.txt"
 	file = io.open(filepath, "a+")
 
-	file:write("\nChampion = " ..game.local_player.champ_name.. "; Kills = "..game.local_player.player_stats.kills.. "; Deaths = "..game.local_player.player_stats.deaths.. "; Assists = "..game.local_player.player_stats.assists.. ";; CS = "..game.local_player.player_stats.creepscore.. " Time = "..game.game_time.. "; Region = "..mission_info.region.. "; Map_Name = "..mission_info.map_name.. "; Mission = "..mission_info.mission.. "; Mode = "..mission_info.mode.. "; Map_id = "..mission_info.map_id.. "; Scripts = ")
+	file:write("\nChampion = " ..game.local_player.champ_name.. "; Kills = "..game.local_player.player_stats.kills.. "; Deaths = "..game.local_player.player_stats.deaths.. "; Assists = "..game.local_player.player_stats.assists.. "; CS = "..game.local_player.player_stats.creepscore.. "; Time = "..game.game_time.. "; Region = "..mission_info.region.. "; Map_Name = "..mission_info.map_name.. "; Mission = "..mission_info.mission.. "; Mode = "..mission_info.mode.. "; Map_id = "..mission_info.map_id.. "; Scripts = ")
 	file:close()
 	--console:log("WRITING DONE")
 	
