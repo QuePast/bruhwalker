@@ -6,16 +6,26 @@ Dev notes
 --add blue trinket support	-- DONE
 --suck width from menu	-- DONE
 -- added lazy fix is_on_screen for more fps -- DONE
--- ONLY ENEMY WARDS
+-- ONLY ENEMY WARDS -- DONE
 --fix the bug with flooring quality
 --V4 Performance optimization
 --V5 Merging visible points
 --]]
 
+do
+    local function AutoUpdate()
+		local Version = 1
+		local web_version = http:get("https://raw.githubusercontent.com/QuePast/bruhwalker/main/TrueWardSight/TrueWardSight.lua.version.txt")
+		if tonumber(web_version) ~= Version then
+			http:download_file("https://raw.githubusercontent.com/QuePast/bruhwalker/main/TrueWardSight/TrueWardSight.lua", "TrueWardSight.lua")
+		end
+    end
+    AutoUpdate()
+end
+
 local library = require "MapLibrary"
 local map = library:New(SUMMONER_RIFT_MAP_ID)
 local myHero = game.local_player
-
 
 function distance(x1 ,y1 ,x2 ,y2)
   local dx = x1 - x2
@@ -80,20 +90,21 @@ function DrawPolygon(polygon)
 end
 
 function on_draw()
-	m = game.wards
-	local quality = (math.floor(menu:get_value_string("circle quality", "settings")/2.5)*2)
-	for _, v in ipairs(m) do
-		bush = map:IsBush(v.origin.x, v.origin.z)
-		if v.is_on_screen and v.is_enemy then
-			if v.champ_name == "BlueTrinket" then
-				points = CircleToPolygon(v.origin, 500 , quality)
-			else
-			points = CircleToPolygon(v.origin, 900 , quality)
+	if game:is_key_down(18) == true then
+		m = game.wards
+		local quality = (math.floor(menu:get_value_string("circle quality", "settings")/2.5)*2)
+		for _, v in ipairs(m) do
+			bush = map:IsBush(v.origin.x, v.origin.z)
+			if v.is_on_screen then --and v.is_enemy
+				if v.champ_name == "BlueTrinket" then
+					points = CircleToPolygon(v.origin, 500 , quality)
+				else
+					points = CircleToPolygon(v.origin, 900 , quality)
+					DrawPolygon(points)
+				end
 			end
-			DrawPolygon(points)
 		end
 	end
-	menuvalue = menu:get_value_string("circle quality", "settings")
 end
 
 console:log("True ward loaded")
