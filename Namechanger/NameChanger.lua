@@ -6,13 +6,15 @@ reset = menu:add_checkbox("Reset name", namechanger, 0)
 
 local function on_tick()
 	if menu:get_value(set) == 1 then
-	player:set_name(name)
+		for _, player in ipairs(game.players) do
+			player:set_name(name)
+		end
+	menu:set_value(set, 0)
 	end
 	
 	if menu:get_value(reset) == 1 then
-	player:restore_name()
-	menu:set_value(reset, 0)
-	menu:set_value(set, 0)
+		player:restore_name()
+		menu:set_value(reset, 0)
 	end
 end
 
