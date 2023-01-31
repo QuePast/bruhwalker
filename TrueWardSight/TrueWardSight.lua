@@ -14,7 +14,7 @@ Dev notes
 
 do
     local function AutoUpdate()
-		local Version = 1
+		local Version = 2
 		local web_version = http:get("https://raw.githubusercontent.com/QuePast/bruhwalker/main/TrueWardSight/TrueWardSight.lua.version.txt")
 		if tonumber(web_version) ~= Version then
 			http:download_file("https://raw.githubusercontent.com/QuePast/bruhwalker/main/TrueWardSight/TrueWardSight.lua", "TrueWardSight.lua")
@@ -95,7 +95,7 @@ function on_draw()
 		local quality = (math.floor(menu:get_value_string("circle quality", "settings")/2.5)*2)
 		for _, v in ipairs(m) do
 			bush = map:IsBush(v.origin.x, v.origin.z)
-			if v.is_on_screen then --and v.is_enemy
+			if v.is_on_screen and v.is_enemy then
 				if v.champ_name == "BlueTrinket" then
 					points = CircleToPolygon(v.origin, 500 , quality)
 				else
