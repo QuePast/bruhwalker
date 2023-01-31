@@ -27,6 +27,7 @@ local library = require "MapLibrary"
 local map = library:New(SUMMONER_RIFT_MAP_ID)
 local myHero = game.local_player
 
+
 function distance(x1 ,y1 ,x2 ,y2)
   local dx = x1 - x2
   local dy = y1 - y2
@@ -90,21 +91,20 @@ function DrawPolygon(polygon)
 end
 
 function on_draw()
-	if game:is_key_down(18) == true then
-		m = game.wards
+	if game:is_key_down(18) then
+		local m = game.wards
 		local quality = (math.floor(menu:get_value_string("circle quality", "settings")/2.5)*2)
 		for _, v in ipairs(m) do
-			bush = map:IsBush(v.origin.x, v.origin.z)
+			local bush = map:IsBush(v.origin.x, v.origin.z)
 			if v.is_on_screen and v.is_enemy then
 				if v.champ_name == "BlueTrinket" then
 					points = CircleToPolygon(v.origin, 500 , quality)
 				else
-					points = CircleToPolygon(v.origin, 900 , quality)
-					DrawPolygon(points)
+				points = CircleToPolygon(v.origin, 900 , quality)
 				end
+				DrawPolygon(points)
 			end
 		end
-		menuvalue = menu:get_value_string("circle quality", "settings")
 	end
 end
 
