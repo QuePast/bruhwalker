@@ -104,8 +104,9 @@ function on_draw()
 				end
 			end
 		end
+		menuvalue = menu:get_value_string("circle quality", "settings")
 	end
 end
 
-console:log("True ward loaded")
+console:log("TrueWardSight.lua loaded")
 client:set_event_callback("on_draw", on_draw)
