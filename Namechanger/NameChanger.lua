@@ -1,7 +1,7 @@
 local name = "Riot Cryptor"
 
 namechanger = menu:add_category("Name Changer")
-set = menu:add_checkbox("Set name", namechanger, 1)
+set = menu:add_checkbox("Set name", namechanger, 0)
 reset = menu:add_checkbox("Reset name", namechanger, 0)
 
 local function on_tick()
