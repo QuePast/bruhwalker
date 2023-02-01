@@ -13,8 +13,10 @@ local function on_tick()
 	end
 	
 	if menu:get_value(reset) == 1 then
-		player:restore_name()
-		menu:set_value(reset, 0)
+		for _, player in ipairs(game.players) do
+			player:restore_name()
+			menu:set_value(reset, 0)
+		end
 	end
 end
 
