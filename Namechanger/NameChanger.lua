@@ -1,7 +1,7 @@
 local name = "Riot Cryptor"
 
 namechanger = menu:add_category("Name Changer")
-set = menu:add_checkbox("Set name", namechanger, 0)
+set = menu:add_checkbox("Set name", namechanger, 1)
 reset = menu:add_checkbox("Reset name", namechanger, 0)
 
 local function on_tick()
@@ -9,12 +9,12 @@ local function on_tick()
 		for _, player in ipairs(game.players) do
 			player:set_name(name)
 		end
-	menu:set_value(set, 0)
 	end
 	
 	if menu:get_value(reset) == 1 then
 		player:restore_name()
 		menu:set_value(reset, 0)
+		menu:set_value(set, 0)
 	end
 end
 
