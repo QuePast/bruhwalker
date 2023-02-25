@@ -10,6 +10,7 @@ champions = [key.split('/')[-1] for key in data.keys()]
 
 # Remove TFTChampion from the list of champion names
 champions = [name for name in champions if name != 'TFTChampion']
+#champions = [name for name in champions if name == 'Ashe']
 # Sort the list alphabetically
 champions = sorted(champions)
 
@@ -35,21 +36,25 @@ with open('spells.lua', 'w') as f:
 
             # Loop over the abilities
             for ability_name in ability_paths:
-                ability_data = data[f"{ability_name}"]["mRootSpell"]
-                script_name = data[f"{ability_data}"]['mScriptName']
-
-                if 'mTargetingTypeData' in data[f"{ability_data}"]['mSpell']:
-                    root_type = data[f"{ability_data}"]['mSpell']['mTargetingTypeData']['__type']
-                    if root_type != "SelfAoe" and root_type != "TargetOrLocation" and root_type != "Self" and root_type != "TerrainLocation" and root_type != "TerrainType" and root_type != "DragDirection" and root_type != "WallDetection":
-                        if root_type == "Direction":
-                            root_type = "linear"
-                        if root_type == "Location" or root_type == "LocationClamped" or root_type == "Area" or root_type == "AreaClamped":
-                            root_type = "circular"
-                        if root_type == "Cone":
-                            root_type = "cone"
-                        # Write the spell name and root type
-                        f.write(f'\t\t{{spell_name = "{script_name}", root_type = "{root_type}"}},\n')
-
+                ability_data = data[f"{ability_name}"]["mChildSpells"]
+                
+                for script_name_full in ability_data:
+                    script_name = data[f"{script_name_full}"]['mScriptName']
+                    print(script_name)
+                    print(script_name_full)
+                    if "mSpell" in data[f"{script_name_full}"]:
+                        if 'mTargetingTypeData' in data[f"{script_name_full}"]['mSpell']:
+                            root_type = data[f"{script_name_full}"]['mSpell']['mTargetingTypeData']['__type']
+                            if root_type != "SelfAoe" and root_type != "TargetOrLocation" and root_type != "Self" and root_type != "TerrainLocation" and root_type != "TerrainType" and root_type != "DragDirection" and root_type != "WallDetection":
+                                if root_type == "Direction":
+                                    root_type = "linear"
+                                if root_type == "Location" or root_type == "LocationClamped" or root_type == "Area" or root_type == "AreaClamped":
+                                    root_type = "circular"
+                                if root_type == "Cone":
+                                    root_type = "cone"
+                                # Write the spell name and root type
+                                f.write(f'\t\t{{spell_name = "{script_name}", root_type = "{root_type}"}},\n')
+    
             # End the spell list and champion definition
             f.write('\t},\n')
 
