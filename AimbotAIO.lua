@@ -1131,81 +1131,81 @@ if not Champs[game.local_player.champ_name] then return end
 end 
 
 function cast_spell(spell_slot, speed, delay, range, width, unit, collision, windwall)
-    pred_output = pred:predict(speed, 0, range, width, unit, collision, windwall)
-    if pred_output.can_cast then
-        castPos = pred_output.cast_pos
-        spellbook:cast_spell(spell_slot, 0, castPos.x, castPos.y, castPos.z)
-    end
+	pred_output = pred:predict(speed, 0, range, width, unit, collision, windwall)
+	if pred_output.can_cast then
+		castPos = pred_output.cast_pos
+		spellbook:cast_spell(spell_slot, 0, castPos.x, castPos.y, castPos.z)
+	end
 end
 
 function on_tick()
-    for i, spells in pairs(Champs[game.local_player.champ_name]) do
-        if spells.spell_name == spellbook:get_spell_slot(SLOT_Q).spell_data.spell_name and game:is_key_down(menu:get_value(spellmenuq)) and menu:get_value(spellmenu_enableq) == 1 and combo:get_mode() == 1 then
+	for i, spells in pairs(Champs[game.local_player.champ_name]) do
+		if spells.spell_name == spellbook:get_spell_slot(SLOT_Q).spell_data.spell_name and game:is_key_down(menu:get_value(spellmenuq)) and menu:get_value(spellmenu_enableq) == 1 and combo:get_mode() == 1 then
 			if spells.root_type == "linear"
 				then range = spellbook:get_spell_slot(SLOT_Q).spell_data.cast_range
 			elseif spells.root_type == "circular" or spells.root_type == "cone"
 				then range = spellbook:get_spell_slot(SLOT_Q).spell_data.cast_radius
 			end
-            speed = spellbook:get_spell_slot(SLOT_Q).spell_data.missile_speed
+			speed = spellbook:get_spell_slot(SLOT_Q).spell_data.missile_speed
 			delay = spellbook:get_spell_slot(SLOT_Q).spell_data.cast_delay
 			console:log(tostring(delay))
-            width = spellbook:get_spell_slot(SLOT_Q).spell_data.width
-            target = selector:find_target(range, cursor)
-            if target.object_id ~= 0 and spellbook:can_cast(SLOT_Q) then
-                if myHero:distance_to(target.origin) <= range  then
-                    cast_spell(SLOT_Q, speed, delay, range, width, target, collision, windwall)
-                end
-            end
-        elseif spells.spell_name == spellbook:get_spell_slot(SLOT_W).spell_data.spell_name and game:is_key_down(menu:get_value(spellmenuw)) and menu:get_value(spellmenu_enablew) == 1 and combo:get_mode() == 1 then
+			width = spellbook:get_spell_slot(SLOT_Q).spell_data.width
+			target = selector:find_target(range, cursor)
+			if target.object_id ~= 0 and spellbook:can_cast(SLOT_Q) then
+				if myHero:distance_to(target.origin) <= range  then
+					cast_spell(SLOT_Q, speed, delay, range, width, target, collision, windwall)
+				end
+			end
+		elseif spells.spell_name == spellbook:get_spell_slot(SLOT_W).spell_data.spell_name and game:is_key_down(menu:get_value(spellmenuw)) and menu:get_value(spellmenu_enablew) == 1 and combo:get_mode() == 1 then
 			if spells.root_type == "linear"
 				then range = spellbook:get_spell_slot(SLOT_W).spell_data.cast_range
 			elseif spells.root_type == "circular" or spells.root_type == "cone"
 				then range = spellbook:get_spell_slot(SLOT_W).spell_data.cast_radius
 			end
-            speed = spellbook:get_spell_slot(SLOT_W).spell_data.missile_speed
+			speed = spellbook:get_spell_slot(SLOT_W).spell_data.missile_speed
 			delay = spellbook:get_spell_slot(SLOT_W).spell_data.cast_delay
 			console:log(tostring(delay))
-            width = spellbook:get_spell_slot(SLOT_W).spell_data.width
-            target = selector:find_target(range, cursor)
-            if target.object_id ~= 0 and spellbook:can_cast(SLOT_W) then
-                if myHero:distance_to(target.origin) <= range  then
-                    cast_spell(SLOT_W, speed, delay, range, width, target, collision, windwall)
-                end
-            end
-        elseif spells.spell_name == spellbook:get_spell_slot(SLOT_E).spell_data.spell_name and game:is_key_down(menu:get_value(spellmenue)) and menu:get_value(spellmenu_enablee) == 1 and combo:get_mode() == 1 then
+			width = spellbook:get_spell_slot(SLOT_W).spell_data.width
+			target = selector:find_target(range, cursor)
+			if target.object_id ~= 0 and spellbook:can_cast(SLOT_W) then
+				if myHero:distance_to(target.origin) <= range  then
+					cast_spell(SLOT_W, speed, delay, range, width, target, collision, windwall)
+				end
+			end
+		elseif spells.spell_name == spellbook:get_spell_slot(SLOT_E).spell_data.spell_name and game:is_key_down(menu:get_value(spellmenue)) and menu:get_value(spellmenu_enablee) == 1 and combo:get_mode() == 1 then
 			if spells.root_type == "linear"
 				then range = spellbook:get_spell_slot(SLOT_E).spell_data.cast_range
 			elseif spells.root_type == "circular" or spells.root_type == "cone"
 				then range = spellbook:get_spell_slot(SLOT_E).spell_data.cast_radius
 			end
-            speed = spellbook:get_spell_slot(SLOT_E).spell_data.missile_speed
+			speed = spellbook:get_spell_slot(SLOT_E).spell_data.missile_speed
 			delay = spellbook:get_spell_slot(SLOT_E).spell_data.cast_delay
 			console:log(tostring(delay))
-            width = spellbook:get_spell_slot(SLOT_E).spell_data.width
-            target = selector:find_target(range, cursor)
-            if target.object_id ~= 0 and spellbook:can_cast(SLOT_E) then
-                if myHero:distance_to(target.origin) <= range  then
-                    cast_spell(SLOT_E, speed, delay, range, width, target, collision, windwall)
-                end
-            end
-        elseif spells.Slot == spellbook:get_spell_slot(SLOT_R).spell_data.spell_name and game:is_key_down(menu:get_value(spellmenur)) and menu:get_value(spellmenu_enabler) == 1 and combo:get_mode() == 1 then
+			width = spellbook:get_spell_slot(SLOT_E).spell_data.width
+			target = selector:find_target(range, cursor)
+			if target.object_id ~= 0 and spellbook:can_cast(SLOT_E) then
+				if myHero:distance_to(target.origin) <= range  then
+					cast_spell(SLOT_E, speed, delay, range, width, target, collision, windwall)
+				end
+			end
+		elseif spells.Slot == spellbook:get_spell_slot(SLOT_R).spell_data.spell_name and game:is_key_down(menu:get_value(spellmenur)) and menu:get_value(spellmenu_enabler) == 1 and combo:get_mode() == 1 then
 			if spells.root_type == "linear"
 				then range = spellbook:get_spell_slot(SLOT_R).spell_data.cast_range
 			elseif spells.root_type == "circular" or spells.root_type == "cone"
 				then range = spellbook:get_spell_slot(SLOT_R).spell_data.cast_radius
 			end
-            speed = spellbook:get_spell_slot(SLOT_R).spell_data.missile_speed
+			speed = spellbook:get_spell_slot(SLOT_R).spell_data.missile_speed
 			delay = spellbook:get_spell_slot(SLOT_R).spell_data.cast_delay
 			console:log(tostring(delay))
-            width = spellbook:get_spell_slot(SLOT_R).spell_data.width
-            target = selector:find_target(range, cursor)
-            if target.object_id ~= 0 and spellbook:can_cast(SLOT_R) then
-                if myHero:distance_to(target.origin) <= range  then
-                    cast_spell(SLOT_R, speed, delay, range, width, target, collision, windwall)
-                end
-            end
-        end
-    end
+			width = spellbook:get_spell_slot(SLOT_R).spell_data.width
+			target = selector:find_target(range, cursor)
+			if target.object_id ~= 0 and spellbook:can_cast(SLOT_R) then
+				if myHero:distance_to(target.origin) <= range  then
+					cast_spell(SLOT_R, speed, delay, range, width, target, collision, windwall)
+				end
+			end
+		end
+	end
 end 
 
 client:set_event_callback("on_tick", on_tick)
