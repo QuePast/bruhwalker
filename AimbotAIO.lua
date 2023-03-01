@@ -1126,7 +1126,6 @@ if not Champs[game.local_player.champ_name] then return end
 			spellmenur = menu:add_keybinder("R Key", spellsconfig, 82)
 			spellmenu_enabler = menu:add_checkbox("R Enabled", spellsconfig, 1)	
 		end
-
 	end
 end 
 
