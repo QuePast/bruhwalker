@@ -13,13 +13,13 @@ if game.local_player.champ_name ~= "Tryndamere" then return end
 
 -- AutoUpdate
 local Version = 0.1
-local Url = "https://raw.githubusercontent.com/Ark223/Bruhwalker/main/"
+local Url = "https://raw.githubusercontent.com/QuePast/bruhwalker/main/"
 
 local function AutoUpdate()
-    local result = http:get(Url .. "Precision.version")
+    local result = http:get(Url .. "Tryndamere.version")
     if result and result ~= "" and tonumber(result) > Version then
-        http:download_file(Url .. "Precision.lua", "Precision.lua")
-        console:log("[Precision] Successfully updated. Please reload!")
+        http:download_file(Url .. "Tryndamere.lua", "Tryndamere.lua")
+        console:log("[Tryndamere] Successfully updated. Please reload!")
         return true
     end
     return false
