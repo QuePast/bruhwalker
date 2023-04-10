@@ -12,17 +12,15 @@
 if game.local_player.champ_name ~= "Tryndamere" then return end
 
 -- AutoUpdate
-local Version = 0.1
-local Url = "https://raw.githubusercontent.com/QuePast/bruhwalker/main/"
-
-local function AutoUpdate()
-    local result = http:get(Url .. "Tryndamere.version")
-    if result and result ~= "" and tonumber(result) > Version then
-        http:download_file(Url .. "Tryndamere.lua", "Tryndamere.lua")
-        console:log("Tryndamere successfully updated!")
-        return true
+do
+    local function AutoUpdate()
+		local Version = 0.1
+		local web_version = http:get("https://raw.githubusercontent.com/QuePast/bruhwalker/main/Tryndamere.version")
+		if tonumber(web_version) ~= Version then
+			http:download_file("https://raw.githubusercontent.com/QuePast/bruhwalker/main/Tryndamere.lua", "Tryndamere.lua")
+		end
     end
-    return false
+    AutoUpdate()
 end
 
 -- Download PKDamageLib.lua if it does not exist
