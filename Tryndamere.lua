@@ -12,7 +12,7 @@
 if game.local_player.champ_name ~= "Tryndamere" then return end
 
 -- AutoUpdate
-local Version = 0.13
+local Version = 0.1
 local Url = "https://raw.githubusercontent.com/Ark223/Bruhwalker/main/"
 
 local function AutoUpdate()
