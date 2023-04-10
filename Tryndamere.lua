@@ -19,7 +19,7 @@ local function AutoUpdate()
     local result = http:get(Url .. "Tryndamere.version")
     if result and result ~= "" and tonumber(result) > Version then
         http:download_file(Url .. "Tryndamere.lua", "Tryndamere.lua")
-        console:log("[Tryndamere] Successfully updated. Please reload!")
+        console:log("Tryndamere successfully updated!")
         return true
     end
     return false
@@ -53,7 +53,7 @@ tryndamere = menu:add_category_sprite("Tryndamere by Rajovan" , os.getenv("LOCAL
 		auto_r = menu:add_checkbox("Auto R", combo_enable )
 			r_hp = menu:add_slider("If HP lower than %", combo_enable, 1, 100, 20 )
 			r_count = menu:add_checkbox("R only if Enemy around", combo_enable )
-			r_attacked = menu:add_checkbox("R when getting attacked", combo_enable )
+			--r_attacked = menu:add_checkbox("R when getting attacked", combo_enable )
 	
 	drawing = menu:add_subcategory("Drawings", tryndamere )
 		draw_w = menu:add_checkbox("Draw W", drawing )
@@ -195,7 +195,7 @@ function Auto_R()
     end
 end
 
--- Ult if getting attacked
+--[[ Ult if getting attacked
 function on_process_spell(obj, args)
 	if menu:get_value(auto_r) == 1 and menu:get_value(r_attacked) == 1 and spellbook:can_cast(SLOT_R) then
 		if obj ~= myHero and args.target.champ_name == "Tryndamere" then
@@ -205,6 +205,8 @@ function on_process_spell(obj, args)
 		end
 	end
 end
+--]]
+
 
 -- Drawing circles
 function on_draw()
@@ -233,4 +235,4 @@ end
 -- Event callbacks
 client:set_event_callback("on_tick_always", on_tick_always)
 client:set_event_callback("on_draw", on_draw)
-client:set_event_callback("on_process_spell", on_process_spell)
+--client:set_event_callback("on_process_spell", on_process_spell)
