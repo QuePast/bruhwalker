@@ -10,6 +10,9 @@ Secretary: Rajovan#2838
 **FPS boost**
 - Dynamically changes user settings (drawings + tick) when low FPS detected. So instead of dropping performance in big teamfight we just decrease quality of drawings
 
+**AimbotAIO**
+- Prediction wrapper for all league of legends spells. Quickcast must be activated or it wont work.
+
 **Namechanger**
 - Changes your ingame name
 
@@ -24,3 +27,6 @@ Secretary: Rajovan#2838
 
 **champ_prio**
 - Gets champion pritorities based on which role and subrole they play
+
+**Tryndamere.lua**
+- Trynda script recode because x64 stopped supporting it
