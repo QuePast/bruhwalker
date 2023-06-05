@@ -1,328 +1,743 @@
 Champs = {
 	["Aatrox"] = {
+		{mScriptName = "AatroxQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "AatroxW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "AatroxE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "AatroxR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Ahri"] = {
+		{mScriptName = "AhriE", mSpellTags = "['Trait_ImmobilizingCCSpell', 'Trait_SignatureSpell']"}, 
+		{mScriptName = "AhriR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock']"}, 
 	},
 	["Akali"] = {
+		{mScriptName = "AkaliE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "AkaliR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock']"}, 
 	},
 	["Akshan"] = {
+		{mScriptName = "AkshanE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "AkshanR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Alistar"] = {
+		{mScriptName = "Pulverize", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "Headbutt", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "AlistarE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "FerociousHowl", mSpellTags = "['Trait_Ultimate', 'SpecialCase_StasisLocked']"}, 
 	},
 	["Amumu"] = {
+		{mScriptName = "BandageToss", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "CurseoftheSadMummy", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Anivia"] = {
+		{mScriptName = "FlashFrost", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "GlacialStorm", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Annie"] = {
+		{mScriptName = "AnnieE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "AnnieR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Aphelios"] = {
+		{mScriptName = "ApheliosQ_ClientTooltipWrapper", mSpellTags = "['Trait_SwapsIntoImmobilizingCCSpell']"}, 
+		{mScriptName = "ApheliosR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Ashe"] = {
+		{mScriptName = "AsheQ", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "EnchantedCrystalArrow", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["AurelionSol"] = {
+		{mScriptName = "AurelionSolQ", mSpellTags = "['Trait_ChannelSpell']"}, 
+		{mScriptName = "AurelionSolW", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "AurelionSolR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Azir"] = {
+		{mScriptName = "AzirEWrapper", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "AzirR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Bard"] = {
+		{mScriptName = "BardQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "BardW", mSpellTags = "['SpecialCase_CastNotTriggerTear', 'PositiveEffect_Boon']"}, 
+		{mScriptName = "BardR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Belveth"] = {
+		{mScriptName = "BelvethW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "BelvethE", mSpellTags = "['Trait_ChannelSpell']"}, 
+		{mScriptName = "BelvethR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Blitzcrank"] = {
+		{mScriptName = "RocketGrab", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "PowerFist", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "StaticField", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Brand"] = {
+		{mScriptName = "BrandQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "BrandR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Braum"] = {
+		{mScriptName = "BraumW", mSpellTags = "['PositiveEffect_MoveBlock', 'PositiveEffect_Boon']"}, 
+		{mScriptName = "BraumRWrapper", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Caitlyn"] = {
+		{mScriptName = "CaitlynW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "CaitlynE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "CaitlynR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["Camille"] = {
+		{mScriptName = "CamilleQ", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "CamilleE", mSpellTags = "['Trait_SwapsIntoImmobilizingCCSpell', 'PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "CamilleR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Cassiopeia"] = {
+		{mScriptName = "CassiopeiaR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Chogath"] = {
+		{mScriptName = "Rupture", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "VorpalSpikes", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "Feast", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Corki"] = {
+		{mScriptName = "CarpetBomb", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "MissileBarrage", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Darius"] = {
+		{mScriptName = "DariusNoxianTacticsONH", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "DariusAxeGrabCone", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "DariusExecute", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock']"}, 
 	},
 	["Diana"] = {
+		{mScriptName = "DianaTeleport", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "DianaR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["DrMundo"] = {
+		{mScriptName = "DrMundoE", mSpellTags = "['Trait_AttackReset', 'PositiveEffect_EmpowerAttack']"}, 
+		{mScriptName = "DrMundoR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Draven"] = {
+		{mScriptName = "DravenDoubleShot", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "DravenRCast", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Ekko"] = {
+		{mScriptName = "EkkoW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "EkkoE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "EkkoR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Teleport']"}, 
 	},
 	["Elise"] = {
+		{mScriptName = "EliseHumanE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "EliseR", mSpellTags = "['Trait_Transformation', 'Trait_Ultimate']"}, 
 	},
 	["Evelynn"] = {
+		{mScriptName = "EvelynnQ", mSpellTags = "['']"}, 
+		{mScriptName = "EvelynnW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "EvelynnE", mSpellTags = "['']"}, 
+		{mScriptName = "EvelynnR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Teleport']"}, 
 	},
 	["Ezreal"] = {
+		{mScriptName = "EzrealE", mSpellTags = "['PositiveEffect_Teleport']"}, 
+		{mScriptName = "EzrealR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["FiddleSticks"] = {
+		{mScriptName = "FiddleSticksQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "FiddleSticksR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Teleport', 'Trait_ChannelSpell']"}, 
 	},
 	["Fiora"] = {
+		{mScriptName = "FioraQ", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "FioraW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "FioraE", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "FioraR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Fizz"] = {
+		{mScriptName = "FizzQ", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "FizzW", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "FizzE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "FizzR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Galio"] = {
+		{mScriptName = "GalioW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "GalioE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "GalioR", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_Ultimate', 'Trait_ChannelSpell', 'PositiveEffect_Boon', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Gangplank"] = {
+		{mScriptName = "GangplankW", mSpellTags = "['SpecialCase_StasisLocked']"}, 
+		{mScriptName = "GangplankR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Garen"] = {
+		{mScriptName = "GarenQ", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "GarenR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Gnar"] = {
+		{mScriptName = "GnarW", mSpellTags = "['Trait_SwapsIntoImmobilizingCCSpell']"}, 
+		{mScriptName = "GnarE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "GnarR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Gragas"] = {
+		{mScriptName = "GragasE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "GragasR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Graves"] = {
+		{mScriptName = "GravesMove", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "GravesChargeShot", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Gwen"] = {
+		{mScriptName = "GwenE", mSpellTags = "['Trait_AttackReset', 'PositiveEffect_EmpowerAttack', 'PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "GwenR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Hecarim"] = {
+		{mScriptName = "HecarimRamp", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "HecarimUlt", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Heimerdinger"] = {
+		{mScriptName = "HeimerdingerE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "HeimerdingerR", mSpellTags = "['Trait_Ultimate', 'Trait_Upgrade', 'Trait_Transformation']"}, 
 	},
 	["Illaoi"] = {
+		{mScriptName = "IllaoiW", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "IllaoiR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Irelia"] = {
+		{mScriptName = "IreliaQ", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "IreliaE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "IreliaR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Ivern"] = {
+		{mScriptName = "IvernQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "IvernE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "IvernR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Janna"] = {
+		{mScriptName = "HowlingGale", mSpellTags = "['Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "EyeOfTheStorm", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "ReapTheWhirlwind", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["JarvanIV"] = {
+		{mScriptName = "JarvanIVDragonStrike", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "JarvanIVDemacianStandard", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "JarvanIVCataclysm", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock']"}, 
 	},
 	["Jax"] = {
+		{mScriptName = "JaxLeapStrike", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "JaxEmpowerTwo", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "JaxCounterStrike", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "JaxRApexForm", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Jayce"] = {
+		{mScriptName = "JayceToTheSkies", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "JayceThunderingBlow", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "JayceStanceHtG", mSpellTags = "['Trait_Transformation', 'Trait_Ultimate']"}, 
 	},
 	["Jhin"] = {
+		{mScriptName = "JhinW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "JhinE", mSpellTags = "['Trait_Trap']"}, 
+		{mScriptName = "JhinR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["Jinx"] = {
+		{mScriptName = "JinxE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "JinxR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["KSante"] = {
+		{mScriptName = "KSanteQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "KSanteW", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "KSanteE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "KSanteR", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Kaisa"] = {
+		{mScriptName = "KaisaR", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_Ultimate']"}, 
 	},
 	["Kalista"] = {
+		{mScriptName = "KalistaRx", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Karma"] = {
+		{mScriptName = "KarmaSpiritBind", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "KarmaSolKimShield", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "KarmaMantra", mSpellTags = "['Trait_Ultimate', 'Trait_Transformation']"}, 
 	},
 	["Karthus"] = {
+		{mScriptName = "KarthusFallenOne", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["Kassadin"] = {
+		{mScriptName = "NetherBlade", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "RiftWalk", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Teleport']"}, 
 	},
 	["Katarina"] = {
+		{mScriptName = "KatarinaW", mSpellTags = "['']"}, 
+		{mScriptName = "KatarinaEWrapper", mSpellTags = "['PositiveEffect_Teleport']"}, 
+		{mScriptName = "KatarinaR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["Kayle"] = {
+		{mScriptName = "KayleW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "KayleE", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "KayleR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon']"}, 
 	},
 	["Kayn"] = {
+		{mScriptName = "KaynQ", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "KaynE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "KaynR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_Transformation']"}, 
 	},
 	["Kennen"] = {
+		{mScriptName = "KennenShurikenStorm", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Khazix"] = {
+		{mScriptName = "KhazixE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "KhazixR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Kindred"] = {
+		{mScriptName = "KindredQ", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "KindredR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon']"}, 
 	},
 	["Kled"] = {
+		{mScriptName = "KledQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "KledE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "KledR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["KogMaw"] = {
+		{mScriptName = "KogMawLivingArtillery", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Leblanc"] = {
+		{mScriptName = "LeblancW", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "LeblancE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "LeblancR", mSpellTags = "['Trait_Ultimate', 'Trait_SwapsIntoImmobilizingCCSpell']"}, 
 	},
 	["LeeSin"] = {
+		{mScriptName = "BlindMonkWOne", mSpellTags = "['PositiveEffect_MoveBlock', 'PositiveEffect_Boon']"}, 
+		{mScriptName = "BlindMonkRKick", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Leona"] = {
+		{mScriptName = "LeonaShieldOfDaybreak", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "LeonaZenithBlade", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "LeonaSolarFlare", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Lillia"] = {
+		{mScriptName = "LilliaW", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "LilliaR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Lissandra"] = {
+		{mScriptName = "LissandraW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "LissandraE", mSpellTags = "['PositiveEffect_Teleport']"}, 
+		{mScriptName = "LissandraR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Lucian"] = {
+		{mScriptName = "LucianE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "LucianR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Lulu"] = {
+		{mScriptName = "LuluW", mSpellTags = "['PositiveEffect_Boon', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "LuluE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "LuluR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Lux"] = {
+		{mScriptName = "LuxLightBinding", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "LuxPrismaticWave", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "LuxR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Malphite"] = {
+		{mScriptName = "Obduracy", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "UFSlash", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Malzahar"] = {
+		{mScriptName = "MalzaharR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Maokai"] = {
+		{mScriptName = "MaokaiQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "MaokaiW", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "MaokaiE", mSpellTags = "['Trait_Trap']"}, 
+		{mScriptName = "MaokaiR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["MasterYi"] = {
+		{mScriptName = "AlphaStrike", mSpellTags = "['PositiveEffect_Teleport', 'Trait_ChannelSpell']"}, 
+		{mScriptName = "Meditate", mSpellTags = "['Trait_ChannelSpell', 'Trait_AttackReset']"}, 
+		{mScriptName = "Highlander", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Milio"] = {
+		{mScriptName = "MilioW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "MilioE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "MilioR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon']"}, 
 	},
 	["MissFortune"] = {
+		{mScriptName = "MissFortuneRicochetShot", mSpellTags = "['Trait_MultiTargetAttack']"}, 
+		{mScriptName = "MissFortuneBulletTime", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["MonkeyKing"] = {
+		{mScriptName = "MonkeyKingDoubleAttack", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "MonkeyKingDecoy", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "MonkeyKingNimbus", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "MonkeyKingSpinToWin", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Mordekaiser"] = {
+		{mScriptName = "MordekaiserE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "MordekaiserR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Morgana"] = {
+		{mScriptName = "MorganaQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "MorganaE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "MorganaR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Nami"] = {
+		{mScriptName = "NamiQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "NamiW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "NamiE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "NamiR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Nasus"] = {
+		{mScriptName = "NasusQ", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "NasusR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Nautilus"] = {
+		{mScriptName = "NautilusAnchorDrag", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "NautilusPiercingGaze", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "NautilusGrandLine", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Neeko"] = {
+		{mScriptName = "NeekoE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "NeekoR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Nidalee"] = {
+		{mScriptName = "Bushwhack", mSpellTags = "['Trait_Trap']"}, 
+		{mScriptName = "PrimalSurge", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "AspectOfTheCougar", mSpellTags = "['Trait_Transformation', 'Trait_Ultimate']"}, 
 	},
 	["Nilah"] = {
+		{mScriptName = "NilahE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset', 'Trait_SignatureSpell']"}, 
+		{mScriptName = "NilahR", mSpellTags = "['Trait_Ultimate', 'SpecialCase_StasisLocked', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Nocturne"] = {
+		{mScriptName = "NocturneUnspeakableHorror", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "NocturneParanoia", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["Nunu"] = {
+		{mScriptName = "NunuW", mSpellTags = "['Trait_ImmobilizingCCSpell', 'Trait_ChannelSpell']"}, 
+		{mScriptName = "NunuE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "NunuR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["Olaf"] = {
+		{mScriptName = "OlafFrenziedStrikes", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "OlafRagnarok", mSpellTags = "['Trait_Ultimate', 'SpecialCase_StasisLocked']"}, 
 	},
 	["Orianna"] = {
+		{mScriptName = "OrianaDissonanceCommand", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "OrianaRedactCommand", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "OrianaDetonateCommand", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Ornn"] = {
+		{mScriptName = "OrnnE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "OrnnR", mSpellTags = "['Trait_Ultimate', 'Trait_SwapsIntoImmobilizingCCSpell']"}, 
 	},
 	["Pantheon"] = {
+		{mScriptName = "PantheonW", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "PantheonR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Teleport']"}, 
 	},
 	["Poppy"] = {
+		{mScriptName = "PoppyW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "PoppyE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "PoppyR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Pyke"] = {
+		{mScriptName = "PykeQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "PykeE", mSpellTags = "['Trait_ImmobilizingCCSpell', 'PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "PykeR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Qiyana"] = {
+		{mScriptName = "QiyanaQ", mSpellTags = "['Trait_SwapsIntoImmobilizingCCSpell']"}, 
+		{mScriptName = "QiyanaW", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "QiyanaE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "QiyanaR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Quinn"] = {
+		{mScriptName = "QuinnE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "QuinnR", mSpellTags = "['Trait_Ultimate', 'Trait_Transformation']"}, 
 	},
 	["Rakan"] = {
+		{mScriptName = "RakanQ", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "RakanW", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "RakanE", mSpellTags = "['PositiveEffect_MoveBlock', 'PositiveEffect_Boon']"}, 
+		{mScriptName = "RakanR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Rammus"] = {
+		{mScriptName = "PowerBall", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "PuncturingTaunt", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "Tremors2", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["RekSai"] = {
+		{mScriptName = "RekSaiQ", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "RekSaiW", mSpellTags = "['Trait_SwapsIntoImmobilizingCCSpell']"}, 
+		{mScriptName = "RekSaiRWrapper", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock']"}, 
 	},
 	["Rell"] = {
+		{mScriptName = "RellW_Dismount", mSpellTags = "['Trait_ImmobilizingCCSpell', 'PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "RellE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "RellR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Renata"] = {
+		{mScriptName = "RenataQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "RenataW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "RenataE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "RenataR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Renekton"] = {
+		{mScriptName = "RenektonPreExecute", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "RenektonSliceAndDice", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "RenektonReignOfTheTyrant", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Rengar"] = {
+		{mScriptName = "RengarQ", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "RengarW", mSpellTags = "['SpecialCase_StasisLocked']"}, 
+		{mScriptName = "RengarE", mSpellTags = "['Trait_SwapsIntoImmobilizingCCSpell']"}, 
+		{mScriptName = "RengarR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Riven"] = {
+		{mScriptName = "RivenTriCleave", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "RivenMartyr", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "RivenFeint", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "RivenFengShuiEngine", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Rumble"] = {
+		{mScriptName = "RumbleCarpetBomb", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Ryze"] = {
+		{mScriptName = "RyzeW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "RyzeR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Teleport']"}, 
 	},
 	["Samira"] = {
+		{mScriptName = "SamiraE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "SamiraR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Sejuani"] = {
+		{mScriptName = "SejuaniQ", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SejuaniE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SejuaniR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Senna"] = {
+		{mScriptName = "SennaQ", mSpellTags = "['PositiveEffect_Boon', 'Trait_MultiTargetAttack']"}, 
+		{mScriptName = "SennaW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SennaE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "SennaR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon']"}, 
 	},
 	["Seraphine"] = {
+		{mScriptName = "SeraphineW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "SeraphineE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SeraphineR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Sett"] = {
+		{mScriptName = "SettQ", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "SettE", mSpellTags = "['Trait_AttackReset', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SettR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Shaco"] = {
+		{mScriptName = "Deceive", mSpellTags = "['PositiveEffect_Teleport']"}, 
+		{mScriptName = "JackInTheBox", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "HallucinateFull", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Shen"] = {
+		{mScriptName = "ShenW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "ShenE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ShenR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell', 'PositiveEffect_Teleport', 'PositiveEffect_Boon']"}, 
 	},
 	["Shyvana"] = {
+		{mScriptName = "ShyvanaDoubleAttack", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "ShyvanaTransformCast", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_Transformation', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Singed"] = {
+		{mScriptName = "Fling", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "InsanityPotion", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Sion"] = {
+		{mScriptName = "SionQ", mSpellTags = "['Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SionR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Sivir"] = {
+		{mScriptName = "SivirW", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "SivirR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon']"}, 
 	},
 	["Skarner"] = {
+		{mScriptName = "SkarnerFracture", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SkarnerImpale", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Sona"] = {
+		{mScriptName = "SonaQ", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "SonaW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "SonaE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "SonaR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Soraka"] = {
+		{mScriptName = "SorakaQ", mSpellTags = "['']"}, 
+		{mScriptName = "SorakaW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "SorakaE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SorakaR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon']"}, 
 	},
 	["Swain"] = {
+		{mScriptName = "SwainE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SwainR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Sylas"] = {
+		{mScriptName = "SylasW", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "SylasE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset', 'Trait_SwapsIntoImmobilizingCCSpell']"}, 
+		{mScriptName = "SylasR", mSpellTags = "['Trait_Ultimate', 'Trait_AttackReset']"}, 
 	},
 	["Syndra"] = {
+		{mScriptName = "SyndraE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "SyndraR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["TahmKench"] = {
+		{mScriptName = "TahmKenchQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "TahmKenchW", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "TahmKenchRWrapper", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Taliyah"] = {
+		{mScriptName = "TaliyahWVC", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "TaliyahE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "TaliyahR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Talon"] = {
+		{mScriptName = "TalonQ", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "TalonE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "TalonR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Taric"] = {
+		{mScriptName = "TaricQ", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "TaricW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "TaricE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "TaricR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon']"}, 
 	},
 	["Teemo"] = {
+		{mScriptName = "TeemoRCast", mSpellTags = "['Trait_Ultimate', 'Trait_Trap']"}, 
 	},
 	["Thresh"] = {
+		{mScriptName = "ThreshQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ThreshW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "ThreshE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ThreshRPenta", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Tristana"] = {
+		{mScriptName = "TristanaW", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "TristanaR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Trundle"] = {
+		{mScriptName = "TrundleTrollSmash", mSpellTags = "['PositiveEffect_EmpowerAttack', 'Trait_AttackReset']"}, 
+		{mScriptName = "TrundleCircle", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "TrundlePain", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Tryndamere"] = {
+		{mScriptName = "TryndamereE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "UndyingRage", mSpellTags = "['SpecialCase_StasisLocked', 'Trait_Ultimate']"}, 
 	},
 	["TwistedFate"] = {
+		{mScriptName = "PickACard", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "Destiny", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Twitch"] = {
+		{mScriptName = "TwitchFullAutomatic", mSpellTags = "['Trait_Ultimate', 'Trait_SylasSpecialAttackOverride', 'Trait_MultiTargetAttack']"}, 
 	},
 	["Udyr"] = {
+		{mScriptName = "UdyrE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Urgot"] = {
+		{mScriptName = "UrgotE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "UrgotR", mSpellTags = "['Trait_Ultimate', 'Trait_SwapsIntoImmobilizingCCSpell']"}, 
 	},
 	["Varus"] = {
+		{mScriptName = "VarusQ", mSpellTags = "['Trait_ChannelSpell']"}, 
+		{mScriptName = "VarusR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Vayne"] = {
+		{mScriptName = "VayneTumble", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "VayneCondemn", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "VayneInquisition", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Veigar"] = {
+		{mScriptName = "VeigarEventHorizon", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "VeigarR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Velkoz"] = {
+		{mScriptName = "VelkozE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "VelkozR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["Vex"] = {
+		{mScriptName = "VexQ", mSpellTags = "['Trait_SignatureSpell']"}, 
+		{mScriptName = "VexR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Vi"] = {
+		{mScriptName = "ViQ", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ViE", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "ViR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Viego"] = {
+		{mScriptName = "ViegoW", mSpellTags = "['Trait_ImmobilizingCCSpell', 'PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "ViegoR", mSpellTags = "['PositiveEffect_Teleport', 'Trait_Ultimate']"}, 
 	},
 	["Viktor"] = {
+		{mScriptName = "ViktorGravitonField", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ViktorChaosStorm", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Vladimir"] = {
+		{mScriptName = "VladimirE", mSpellTags = "['Trait_ChannelSpell']"}, 
+		{mScriptName = "VladimirHemoplague", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Volibear"] = {
+		{mScriptName = "VolibearQ", mSpellTags = "['Trait_AttackReset', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "VolibearR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Warwick"] = {
+		{mScriptName = "WarwickQ", mSpellTags = "['Trait_ChannelSpell']"}, 
+		{mScriptName = "WarwickE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "WarwickR", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Xayah"] = {
+		{mScriptName = "XayahW", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "XayahE", mSpellTags = "['SpecialCase_CastNotTriggerTear', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "XayahR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Xerath"] = {
+		{mScriptName = "XerathArcanopulseChargeUp", mSpellTags = "['Trait_ChannelSpell']"}, 
+		{mScriptName = "XerathMageSpear", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "XerathLocusOfPower2", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell']"}, 
 	},
 	["XinZhao"] = {
+		{mScriptName = "XinZhaoQ", mSpellTags = "['Trait_AttackReset', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "XinZhaoE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "XinZhaoR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Yasuo"] = {
+		{mScriptName = "YasuoQ1Wrapper", mSpellTags = "['Trait_SwapsIntoImmobilizingCCSpell']"}, 
+		{mScriptName = "YasuoE", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "YasuoR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Yone"] = {
+		{mScriptName = "YoneQ", mSpellTags = "['Trait_SwapsIntoImmobilizingCCSpell', 'Trait_MultiTargetAttack']"}, 
+		{mScriptName = "YoneE", mSpellTags = "['']"}, 
+		{mScriptName = "YoneR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Yorick"] = {
+		{mScriptName = "YorickQ", mSpellTags = "['Trait_AttackReset']"}, 
+		{mScriptName = "YorickR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Yuumi"] = {
+		{mScriptName = "YuumiW", mSpellTags = "['PositiveEffect_MoveBlock']"}, 
+		{mScriptName = "YuumiE", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "YuumiR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell', 'PositiveEffect_Boon']"}, 
 	},
 	["Zac"] = {
+		{mScriptName = "ZacQ", mSpellTags = "['Trait_AttackReset', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ZacE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ZacR", mSpellTags = "['Trait_Ultimate', 'Trait_ChannelSpell', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 	["Zed"] = {
+		{mScriptName = "ZedR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Teleport']"}, 
 	},
 	["Zeri"] = {
+		{mScriptName = "ZeriE", mSpellTags = "['PositiveEffect_MoveBlock', 'Trait_AttackReset']"}, 
+		{mScriptName = "ZeriR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Ziggs"] = {
+		{mScriptName = "ZiggsW", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ZiggsR", mSpellTags = "['Trait_Ultimate']"}, 
 	},
 	["Zilean"] = {
+		{mScriptName = "ZileanQ", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "TimeWarp", mSpellTags = "['PositiveEffect_Boon']"}, 
+		{mScriptName = "ChronoShift", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Boon']"}, 
 	},
 	["Zoe"] = {
+		{mScriptName = "ZoeE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ZoeR", mSpellTags = "['Trait_Ultimate', 'PositiveEffect_Teleport']"}, 
 	},
 	["Zyra"] = {
+		{mScriptName = "ZyraE", mSpellTags = "['Trait_ImmobilizingCCSpell']"}, 
+		{mScriptName = "ZyraR", mSpellTags = "['Trait_Ultimate', 'Trait_ImmobilizingCCSpell']"}, 
 	},
 }

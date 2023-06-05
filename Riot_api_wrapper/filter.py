@@ -11,6 +11,7 @@ champions = [data[char]['name'] for char in data]
 
 # Remove TFTChampion from the list of champion names
 champions = [name for name in champions if name != 'TFTChampion']
+#champions = [name for name in champions if name == 'Jax']
 
 # Sort the list alphabetically
 champions = sorted(champions)
@@ -47,28 +48,37 @@ with open('data.txt', 'w') as f:
 
                 if path in data:
                     #UNHASHED CHAMPS - SHEN
-                    print(path)
-                    print(data[path]["mScriptName"])
-
+                    if 'mSpellTags' in data[path]["mSpell"]:
+                        print(data[path]["mScriptName"])
+                        f.write(f'\t\t{{mScriptName = "{data[path]["mScriptName"]}", mSpellTags = "{data[path]["mSpell"]["mSpellTags"]}"}}, \n')
+                    else:
+                        print(data[path]["mScriptName"] + " mSpellTags not detected")
                 else:
                     #PARTIALLY HASHED CHAMPS - AHRI
-                    part_hash = "{" + hex(fnv1a_32(f'characters/{champion_name.lower()}/spells/{spell_names.lower()}'.encode()))[2:] + "}"
-                    print(part_hash)
-                    print(data[part_hash]["mScriptName"])
+                    path = "{" + hex(fnv1a_32(f'characters/{champion_name.lower()}/spells/{spell_names.lower()}'.encode()))[2:] + "}"
+                    if 'mSpellTags' in data[path]["mSpell"]:
+                        print(data[path]["mScriptName"])
+                        f.write(f'\t\t{{mScriptName = "{data[path]["mScriptName"]}", mSpellTags = "{data[path]["mSpell"]["mSpellTags"]}"}}, \n')
+                    else:
+                        print(data[path]["mScriptName"] + " mSpellTags not detected")
                 
         else: #FULL HASHED CHAMPS - MILIO
             # Hash the string using fnv1a32
-            root_hash = "{" + hex(fnv1a_32(f'characters/{champion_name.lower()}/characterrecords/root'.encode()))[2:] + "}"
+            ability_paths = "{" + hex(fnv1a_32(f'characters/{champion_name.lower()}/characterrecords/root'.encode()))[2:] + "}"
 
             # Write the champion name and start of the spell list
             f.write(f'\t["{champion_name}"] = {{\n')
             
-            if root_hash in data:
-                ability_paths = data[root_hash]["spellNames"]
+            if ability_paths in data:
+                ability_paths = data[ability_paths]["spellNames"]
 
                 for spell_names in ability_paths:
                     path = "{" + hex(fnv1a_32(f'characters/{champion_name.lower()}/spells/{spell_names.lower()}'.encode()))[2:] + "}"
-                    print(path)
+                    if 'mSpellTags' in data[path]["mSpell"]:
+                        print(data[path]["mScriptName"])
+                        f.write(f'\t\t{{mScriptName = "{data[path]["mScriptName"]}", mSpellTags = "{data[path]["mSpell"]["mSpellTags"]}"}}, \n')
+                    else:
+                        print(data[path]["mScriptName"] + " mSpellTags not detected")
             else:
                 print(f'Error: Could not find ability tags for champion {champion_name}')
                 continue
