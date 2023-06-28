@@ -6,6 +6,11 @@
    | | |   | |_| | | | ( (_| / ___ | | | | ____| |   | ____|
    |_|_|    \__  |_| |_|\____\_____|_|_|_|_____)_|   |_____)
            (____/                                           
+Bugs:
+Killsteal not range limited
+Q settings?
+E usage after attack
+Bug e usage in laneclear
 --]]
 
 -- Exit if the local player's champion is not Tryndamere
